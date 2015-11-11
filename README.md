@@ -11,7 +11,7 @@ https://nodejs.org/en/
 npm install
 
 # plug it in 
-plug in your openbci dongle
+plug in your openbci dongle \n
 change "/dev/tty.usbserial-DNXXXXXX" to the name of your dongle on line 37 in index.js (we'll change this soon)
 
 # to deploy
