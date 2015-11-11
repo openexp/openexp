@@ -12,3 +12,6 @@ npm install
 
 # to deploy
 node index.js
+
+# to view
+point your browser (tested in chrome) to: http://localhost:5000 
