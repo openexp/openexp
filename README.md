@@ -20,4 +20,4 @@ node index.js
 # to view
 point your browser (tested in chrome) to: http://localhost:5000 
 
-Thanks Josh DeLeeuw for sharing jsPsych, the force behind the stimulus presentation and behavioral data collection/organization
+Thanks Josh DeLeeuw for sharing [jsPsych](https://github.com/jodeleeuw/jsPsych), the force behind the stimulus presentation and behavioral data collection/organization
