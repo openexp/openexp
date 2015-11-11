@@ -1,6 +1,28 @@
-var app = require('app')
-var BrowserWindow = require('browser-window')
+ var express = require("express");
+ var app = express();
 
+ /* serves main page */
+ app.get("/", function(req, res) {
+    res.sendfile('index.html')
+ });
+
+  app.post("/user/add", function(req, res) {
+	/* some server side logic */
+	res.send("OK");
+  });
+
+ /* serves all the static files */
+ app.get(/^(.+)$/, function(req, res){
+     console.log('static file request : ' + req.params);
+     res.sendFile( __dirname + req.params[0]);
+ });
+
+ var port = process.env.PORT || 5000;
+ app.listen(port, function() {
+   console.log("Listening on " + port);
+ });
+
+//////////////////////////////////////////////////
 //code to connect directly to the board
 var serialport = require("serialport");
 var SerialPort = serialport.SerialPort;
@@ -17,19 +39,6 @@ var serialPort = new SerialPort("/dev/tty.usbserial-DN0094J0", {
   parser: serialport.parsers.readline("\n")
 });
 
-app.on('ready', function(){
-  var mainWindow = new BrowserWindow({
-    width:1000,
-    height:800
-  })
-
-  // Load the main URL
-  mainWindow.loadUrl('file://' + __dirname + '/index.html')
-
-   // Open the DevTools.
-  mainWindow.openDevTools();
-
-  })
 
 function writeAndDrain (data, callback) {
   serialPort.write(data, function () {
@@ -79,7 +88,7 @@ socket.on('connection', function(client){
     });
 
     client.on('disconnect',function(){
-        clearInterval(interval);
+        //clearInterval(interval);
         console.log('Server has disconnected');
     });
 });
