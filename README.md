@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/OpenBCI/OpenEXP.png?label=ready&title=Ready)](https://waffle.io/OpenBCI/OpenEXP)
 # OpenEXP
 OpenEXP is an open-source browser-based web app for running experiments and collecting EEG data with OpenBCI.
 
