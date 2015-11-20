@@ -10,7 +10,8 @@
     <script src="externals/jspsych/plugins/jspsych-single-stim.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-    <!--<script src="js/fire-0.62.min.js"></script>-->
+    <script src="node_modules/angular/angular.min.js"></script>
+
     <!-- CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="externals/jspsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
@@ -72,15 +73,16 @@
   </nav>
   <div class="row spacer" style="margin-top:100px"></div>
   <center>
-  <div class="hidden">
-    <div id="fire">
+  <div>
+
       <img id="spinit" src="img/headerlogofront.png" width="300"/>
-    </div>
+
   </div>
   <div class="row spacer" style="margin-top:100px"></div>
   <button id="startbutton" class="btn btn-lg btn-default">Start</button>
   <button id="stopbutton" class="btn btn-lg btn-default">Stop</button>
   <button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button>
+  <button id="listports" class="btn btn-lg btn-default">List Ports</button>
   <div class="row spacer" style="margin-top:100px"></div>
 
   </center>
@@ -88,7 +90,6 @@
 
   <script>
   $(document).ready(function () {
-    $('div.hidden').fadeIn(1000).removeClass('hidden');
 
     var socket = io.connect('http://localhost:8080');
     $('#triggerbutton').click(function(){
@@ -106,6 +107,15 @@
       socket.emit('message', 's');
     });
 
+    $('#listports').click(function(){
+      console.log('button clicked')
+      socket.emit('listports', 'true');
+    });
+
+    socket.on('openports', function(data){
+      console.log(data)
+    })
+
   });
 
   var value = 0
@@ -118,8 +128,6 @@
       }
     }
   });
-
-  //
 
   </script>
 
