@@ -5,11 +5,10 @@
  var express = require("express");
  var myApp = express();
 
-
  // serves main page
-
- myApp.get("/", function(req, res) {
+ myApp.get('/', function(req, res) {
     res.sendFile(__dirname + '/pages/index.html')
+    console.log("Loaded main page!!")
  });
 
 /*
@@ -23,9 +22,8 @@
  myApp.get(/^(.+)$/, function(req, res){
      console.log('static file request : ' + req.params);
      res.sendFile( __dirname + req.params[0]);
+     console.log("Loading static ." + req.params[0])
  });
-
-
 
  var port = process.env.PORT || 5000;
  myApp.listen(port, function() {
