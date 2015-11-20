@@ -1,0 +1,56 @@
+<center>
+<div>
+    <img id="spinit" src="img/headerlogofront.png" width="300"/>
+</div>
+<div class="row spacer" style="margin-top:100px"></div>
+<button id="startbutton" class="btn btn-lg btn-default">Start</button>
+<button id="stopbutton" class="btn btn-lg btn-default">Stop</button>
+<button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button>
+<button id="listports" class="btn btn-lg btn-default">List Ports</button>
+<div class="row spacer" style="margin-top:100px"></div>
+
+</center>
+</body>
+
+<script>
+$(document).ready(function () {
+
+  var socket = io.connect('http://localhost:8080');
+  $('#triggerbutton').click(function(){
+    console.log('button clicked')
+    socket.emit('message', '`');
+  });
+
+  $('#startbutton').click(function(){
+    console.log('button clicked')
+    socket.emit('message', 'b');
+  });
+
+  $('#stopbutton').click(function(){
+    console.log('button clicked')
+    socket.emit('message', 's');
+  });
+
+  $('#listports').click(function(){
+    console.log('button clicked')
+    socket.emit('listports', 'true');
+  });
+
+  socket.on('openports', function(data){
+    console.log(data)
+  })
+
+});
+
+var value = 0
+$("#spinit").rotate({
+  bind:
+  {
+    click: function(){
+      value +=90;
+      $(this).rotate({ animateTo:value})
+    }
+  }
+});
+
+</script>
