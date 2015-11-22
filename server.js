@@ -5,11 +5,20 @@
  var express = require("express");
  var myApp = express();
 
+ myApp.use(express.static(__dirname));
  // serves main page
+//
+//  myApp.get('/sandbox', function (req, res) {
+//   console.log("sandbox.")
+//   res.sendFile(__dirname + '/pages/sandbox.html')
+// });
+
  myApp.get('/', function(req, res) {
     res.sendFile(__dirname + '/pages/index.html')
-    console.log("Loaded main page!!")
+    console.log("Loaded index.")
  });
+
+
 
 /*
   myApp.post("/user/add", function(req, res) {
@@ -18,12 +27,12 @@
   });
 */
  // serves all the static files
-
- myApp.get(/^(.+)$/, function(req, res){
-     console.log('static file request : ' + req.params);
-     res.sendFile( __dirname + req.params[0]);
-     console.log("Loading static ." + req.params[0])
- });
+ //
+ // myApp.get(/^(.+)$/, function(req, res){
+ //     console.log('static file request : ' + req.params);
+ //     res.sendFile( __dirname + req.params[0]);
+ //     console.log("Loading static ." + req.params[0])
+ // });
 
  var port = process.env.PORT || 5000;
  myApp.listen(port, function() {

@@ -10,11 +10,11 @@ var myApp = angular.module('myApp', [
         controller: 'mainController'
       })
       .when('/sandbox', {
-        templateURL: 'pages/sandbox.html',
+        templateUrl: 'pages/sandbox.html',
         controller: 'mainController'
       })
       .when('/reactionTimeTask', {
-        templateURL: 'pages/reactionTimeTask.html',
+        templateUrl: 'pages/reactionTimeTask.html',
         controller: 'mainController'
       })
   }]);

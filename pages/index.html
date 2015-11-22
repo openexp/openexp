@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="myApp">
+<html >
   <head>
     <title>OpenEXP</title>
 
@@ -26,7 +26,7 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body ng-app="myApp" ng-controller="mainController">
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
@@ -46,13 +46,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/main.html">OpenEXP<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="#/">OpenEXP<span class="sr-only">(current)</span></a></li>
           <li><a href="/EEG">EEG</a></li>
-          <li><a href="/sandbox.html">Sandbox</a></li>
+          <li><a href="#/sandbox">Sandbox</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiments <span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiments <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/reactionTimeTask.html">Reaction Time Task</a></li>
+              <li><a href="#/reactionTimeTask">Reaction Time Task</a></li>
               <li><a href="#">Memory Study - Pictures</a></li>
               <li><a href="#">Language Study - Words</a></li>
               <li role="separator" class="divider"></li>
@@ -80,12 +80,10 @@
   </nav>
 
   <div class="row spacer" style="margin-top:100px"></div>
-  <div ng-controller="mainController">
+  <div>
     <div ng-view></div> <!--this is where we will inject the code-->
-    {{ name }}
 
   </div>
-
 
 </body>
 </html>

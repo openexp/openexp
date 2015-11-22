@@ -4,6 +4,8 @@ mainController.controller('mainController', ['$scope', '$filter', '$location', '
 
     $log.info($location.path());
 
+    $scope.name = $location.path();
+
     $scope.handle = '';
 
     $scope.lowercasehandle = function() {
@@ -15,11 +17,9 @@ mainController.controller('mainController', ['$scope', '$filter', '$location', '
     $scope.rules = [
 
         { rulename: "Must be 5 characters" },
-        { rulename: "Must not be used elsewhere" },
-        { rulename: "Must be cool" }
 
     ];
 
     console.log($scope.rules);
 
-}]);
+}]); 
