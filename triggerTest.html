@@ -97,14 +97,9 @@
         data: { response: 'go' },
         trigger: "`",
       },
-      {
-        image: "img/orange.png",
-        data: { response: 'go' },
-        trigger: "`",
-      }
     ];
 
-    var all_trials = jsPsych.randomization.repeat(test_stimuli, 10, true);
+    var all_trials = jsPsych.randomization.repeat(test_stimuli, 100, true);
 
     var post_trial_gap = function() {
       return Math.floor( Math.random() * 1500 ) + 750;
@@ -116,7 +111,7 @@
       stimuli: all_trials.image,
       choices: ['F'],
       data: all_trials.data,
-      timing_response: 1000,
+      timing_response: 100,
       timing_post_trial: post_trial_gap,
       triggers: all_trials.trigger,
     };
