@@ -1,10 +1,10 @@
 {
   "name": "openexp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "open-source browser-based interface for running experiments with openbci",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "electron ."
+    "start": "node server.js"
   },
   "author": "Andy Heusser & Teon Brooks",
   "license": "MIT",
@@ -27,5 +27,6 @@
   "bugs": {
     "url": "https://github.com/OpenBCI/OpenEXP/issues"
   },
-  "homepage": "https://github.com/OpenBCI/OpenEXP#readme"
+  "homepage": "https://github.com/OpenBCI/OpenEXP#readme",
+  "devDependencies": {}
 }

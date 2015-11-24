@@ -1,104 +1,32 @@
 ////////////////////////////////////////////////////////////////////////////////
-// serve the website using express  ////////////////////////////////////////////
+// serve the website using express + node  /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-/* require express */
+
+// require express
  var express = require("express");
  var myApp = express();
 
- myApp.use(express.static(__dirname));
- // serves main page
-//
-//  myApp.get('/sandbox', function (req, res) {
-//   console.log("sandbox.")
-//   res.sendFile(__dirname + '/pages/sandbox.html')
-// });
+ myApp.use(express.static(__dirname + '/public/'));
 
+ // serves main page
  myApp.get('/', function(req, res) {
-    res.sendFile(__dirname + '/pages/index.html')
+    res.sendFile(__dirname + '/public/index.html')
     console.log("Loaded index.")
  });
 
-
-
-/*
-  myApp.post("/user/add", function(req, res) {
-	// some server side logic
-	res.send("OK");
-  });
-*/
- // serves all the static files
- //
- // myApp.get(/^(.+)$/, function(req, res){
- //     console.log('static file request : ' + req.params);
- //     res.sendFile( __dirname + req.params[0]);
- //     console.log("Loading static ." + req.params[0])
- // });
-
+// start server on port 5000
  var port = process.env.PORT || 5000;
  myApp.listen(port, function() {
-   console.log("Listening on " + port);
+   console.log('Point your browser to http://localhost:' + port);
  });
 
-/*
-
-
-
 ////////////////////////////////////////////////////////////////////////////////
-// use serialport code to connect directly to the board ////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-var serialport = require("serialport");
-var SerialPort = serialport.SerialPort;
-
-// list serial ports:
-serialport.list(function (err, ports) {
-  ports.forEach(function(port) {
-    console.log(port.comName);
-  });
-});
-
-
-
-// create a serialport object
-var serialPort = new SerialPort("/dev/tty.usbserial-DN0094J0", {
-  baudrate: 115200,
-  parser: serialport.parsers.readline("\n")
-});
-
-// code to write a trigger
-function writeAndDrain (data, callback) {
-  serialPort.write(data, function () {
-    serialPort.drain(callback);
-    console.log('sent:' + data);
-  });
-}
-
-// on open, write out to the console and reset the board
- serialPort.on("open", function () {
-   console.log('serial connection open: ' + serialPort.isOpen());
-   serialPort.on("data", function(data) {
-     //console.log('data received: ' + data.toString());
-   });
-   serialPort.on("error", function(error) {
-     console.log(error);
-   });
-   serialPort.write('v');
-   console.log('OpenBCI board reset to default state')
- });
-
-// an alternate function to write data to the board - untested
-function sendToSerial(data) {
- console.log("sending to serial: " + data);
- serialPort.write(data);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// Require HTTP module (to start server) and Socket.IO  ////////////////////////
+// Set up Socket.IO to send messages between client and server /////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 var http = require('http');
 var io = require('socket.io');
-var port = 8080;
+var socketport = 8080;
 
 // Start the server at port 8080
 var server = http.createServer(function(req, res){
@@ -106,8 +34,7 @@ var server = http.createServer(function(req, res){
     res.writeHead(200,{ 'Content-Type': 'text/html' });
     res.end('<h1>Hello Socket Lover!</h1>');
 });
-
-server.listen(port);
+server.listen(socketport);
 
 // Create a Socket.IO instance, passing it our server
 var socket = io.listen(server);
@@ -122,6 +49,10 @@ socket.on('connection', function(client){
         writeAndDrain(event)
     });
 
+    client.on('trigger',function(event){
+        console.log('Trigger from client!',event);
+    });
+
     client.on('disconnect',function(){
         //clearInterval(interval);
         console.log('Server has disconnected');
@@ -129,16 +60,61 @@ socket.on('connection', function(client){
 
     client.on('listports', function(client){
       console.log('Client requests list of serial devices, sending...')
-      socket.emit('openports', { hello: 'world' });
+      socket.emit('serialdevices', { hello: 'world' });
     })
 });
 
-*/
-
-//console.log('Websocket Server running at http://127.0.0.1:' + port + '/');
-console.log('Website served at http://127.0.0.1:5000/');
 ////////////////////////////////////////////////////////////////////////////////
-// Require HTTP module (to start server) and Socket.IO  ////////////////////////
+// use serialport code to connect directly to the board ////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//
+// var serialport = require("serialport");
+// var SerialPort = serialport.SerialPort;
+//
+// //list serial ports:
+// serialport.list(function (err, ports) {
+//   ports.forEach(function(port) {
+//     console.log(port.comName);
+//   });
+// });
+//
+//
+// // code to write a trigger
+// function writeAndDrain (data, callback) {
+//   serialPort.write(data, function () {
+//     serialPort.drain(callback);
+//     console.log('sent:' + data);
+//   });
+// }
+//
+//
+// // create a serialport object
+// // var serialPort = new SerialPort("/dev/tty.usbserial-DN0094J0", {
+// //   baudrate: 115200,
+// //   parser: serialport.parsers.readline("\n")
+// // });
+//
+// // on open, write out to the console and reset the board
+//  serialPort.on("open", function () {
+//    console.log('serial connection open: ' + serialPort.isOpen());
+//    serialPort.on("data", function(data) {
+//      //console.log('data received: ' + data.toString());
+//    });
+//    serialPort.on("error", function(error) {
+//      console.log(error);
+//    });
+//    serialPort.write('v');
+//    console.log('OpenBCI board reset to default state')
+//  });
+//
+// // an alternate function to write data to the board - untested
+// function sendToSerial(data) {
+//  console.log("sending to serial: " + data);
+//  serialPort.write(data);
+// }
+
+////////////////////////////////////////////////////////////////////////////////
+// code to get started with electron  //////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 /*
