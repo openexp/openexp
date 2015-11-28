@@ -2,17 +2,36 @@
 // serve the website using express + node  /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// require express
  var express = require("express");
  var myApp = express();
 
  myApp.use(express.static(__dirname + '/public/'));
+ myApp.use(express.static(__dirname + '/externals/'));
 
  // serves main page
  myApp.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html')
     console.log("Loaded index.")
  });
+
+ myApp.get('/getserial', function(req,res){
+   devices=[]
+   serialport.list(function (err, ports) {
+     ports.forEach(function(port) {
+        devices.push({Name: port.comName})
+   });
+   res.json(devices);
+   console.log(devices);
+ });
+ });
+
+ // myApp.get('/connectdevice', function(req,res){
+ //   //create a serialport object
+ //   var serialPort = new SerialPort("/dev/tty.usbserial-DN0094J0", {
+ //     baudrate: 115200,
+ //     parser: serialport.parsers.readline("\n")
+ //   });
+ // });
 
 // start server on port 5000
  var port = process.env.PORT || 5000;
@@ -60,7 +79,16 @@ socket.on('connection', function(client){
 
     client.on('listports', function(client){
       console.log('Client requests list of serial devices, sending...')
-      socket.emit('serialdevices', { hello: 'world' });
+      serialport.list(function (err, ports) {
+        // $scope=[];
+        // $scope.devices=[];
+        // ports.forEach(function(port) {
+        //     $scope.devices.push({id: 1,
+        //       Name: port.comName})
+        // });
+        // console.log($scope.devices);
+        // socket.emit('serialdevices',$scope.devices)
+      });
     })
 });
 
@@ -68,8 +96,8 @@ socket.on('connection', function(client){
 // use serialport code to connect directly to the board ////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //
-// var serialport = require("serialport");
-// var SerialPort = serialport.SerialPort;
+var serialport = require("serialport");
+var SerialPort = serialport.SerialPort;
 //
 // //list serial ports:
 // serialport.list(function (err, ports) {

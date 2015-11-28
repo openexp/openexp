@@ -1,22 +1,23 @@
-  <table class="table table-bordered table-hover" style="width:300px">
+<div class="row spacer" style="margin-top:100px"></div>
+<center>
+ <table class="table table-bordered table-rounded" style="width:300px; height:150px">
         <tr>
-            <th>Id</th>
-            <th>Path</th>
-            <th>Name</th>
+            <th style="color: white; background-color:#222; text-align:center; height:20px">Device Name</th>
         </tr>
         <tr ng-repeat="device in devices">
-            <td>{{device.id}}</td>
-            <td>{{device.Path}}</td>
-            <td>{{device.Name}}</td>
+            <td ng-click="setSelected(device.Name)" ng-class="{selected: device.Name === nameSelectedDevice}">{{device.Name}}</td>
         </tr>
   </table>
-<button id="listports" class="btn btn-lg btn-default" ng-click="loadDevices()">List Ports</button>
-<button id="connect" class="btn btn-lg btn-default" ng-click="">Connect</button>
-<div class="row spacer" style="margin-top:100px"></div>
-<button id="startbutton" class="btn btn-lg btn-default">Start</button>
+
+<button id="listdevices" class="btn btn-lg btn-default" ng-click="loadDevices()">List Devices</button>
+<button type="button" autocomplete="off" id="connectdevice" data-loading-text="Connecting..." class="btn btn-lg btn-default">Connect</button>
+
+<!-- <div class="row spacer" style="margin-top:100px"></div> -->
+<!-- <button id="startbutton" class="btn btn-lg btn-default">Start</button>
 <button id="stopbutton" class="btn btn-lg btn-default">Stop</button>
-<button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button>
+<button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button> -->
 <div class="row spacer" style="margin-top:100px"></div>
+</center>
 </body>
 
 <script>
@@ -28,9 +29,11 @@ $(document).ready(function () {
     socket.emit('message', '`');
   });
 
-  $('#startbutton').click(function(){
+  $('#connectdevice').click(function(){
+    var $btn = $(this).button('loading')
     console.log('button clicked')
     socket.emit('message', 'b');
+    $btn.button('reset')
   });
 
   $('#stopbutton').click(function(){
@@ -38,14 +41,15 @@ $(document).ready(function () {
     socket.emit('message', 's');
   });
 
-  $('#listports').click(function(){
-    console.log('button clicked')
-    socket.emit('listports', 'true');
-  });
+  // $('#listports').click(function(){
+  //   console.log('button clicked')
+  //   socket.emit('listports', 'true');
+  // });
 
-  socket.on('serialdevices', function(data){
-    console.log(data)
-  })
+  // socket.on('serialdevices', function(data){
+  //   devicesController.devices=data;
+  //   console.log(data)
+  // })
 
 });
 

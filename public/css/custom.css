@@ -64,3 +64,12 @@ div.hidden {
         border-top:0 none;
     }
 }
+
+/*color of device selected to connect to*/
+.selected {
+  background-color: yellow;
+}
+
+.table-rounded {
+  border-radius: 6px 0 0 0;
+};
