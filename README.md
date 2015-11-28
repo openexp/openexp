@@ -8,8 +8,8 @@ git clone --recursive [URL]
 # install npm
 https://nodejs.org/en/
 
-# install dependencies by executing this line in project folder
-npm install
+# install dependencies
+by executing this line in project folder: npm install
 
 # plug it in 
 plug in your openbci dongle
