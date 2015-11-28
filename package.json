@@ -3,30 +3,28 @@
   "version": "0.0.2",
   "description": "open-source browser-based interface for running experiments with openbci",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "author": "Andy Heusser & Teon Brooks",
-  "license": "MIT",
   "dependencies": {
+    "angular": "^1.4.7",
+    "body-parser": "^1.14.1",
     "httpdispatcher": "^0.4.0",
-    "socket.io": "^1.3.7",
+    "mongoose": "^4.2.7",
     "express": "^4.13.3",
-    "serialport": "^2.0.4"
+    "serialport": "^2.0.5",
+    "socket.io": "^1.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenBCI/OpenEXP.git"
+    "url": "git+https://github.com/andyh616/OpenEXP.git"
   },
-  "keywords": [
-    "open-source",
-    "EEG",
-    "openexp",
-    "openbci"
-  ],
+  "author": "Andy Heusser & Teon Brooks",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenBCI/OpenEXP/issues"
+    "url": "https://github.com/andyh616/OpenEXP/issues"
   },
-  "homepage": "https://github.com/OpenBCI/OpenEXP#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/andyh616/OpenEXP#readme"
 }
