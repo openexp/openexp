@@ -8,18 +8,19 @@ git clone --recursive [URL]
 # install npm
 https://nodejs.org/en/
 
-# install dependencies
+# install dependencies by executing this line in project folder
 npm install
 
 # plug it in 
-plug in your openbci dongle and
-change "/dev/tty.usbserial-DNXXXXXX" to the name of your dongle on line 37 in index.js (we'll change this soon)
+plug in your openbci dongle
 
 # to deploy
-node index.js
+node server.js
 
 # to view
-point your browser (tested in chrome) to: http://localhost:5000 
+point your browser to: http://localhost:5000 
 
 # thank you
 Thanks Josh DeLeeuw for sharing [jsPsych](https://github.com/jodeleeuw/jsPsych), the force behind the stimulus presentation and behavioral data collection/organization
+
+(tested in chrome with mac osx yosemite 10.10.3)
