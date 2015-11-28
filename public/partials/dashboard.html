@@ -1,6 +1,6 @@
 <div class="row spacer" style="margin-top:100px"></div>
 <center>
- <table class="table table-bordered table-rounded" style="width:300px; height:150px">
+    <table class="table table-bordered" style="width:300px; height:150px">
         <tr>
             <th style="color: white; background-color:#222; text-align:center; height:20px">Device Name</th>
         </tr>
@@ -9,16 +9,15 @@
         </tr>
   </table>
 
-<button id="listdevices" class="btn btn-lg btn-default" ng-click="loadDevices()">List Devices</button>
-<button type="button" autocomplete="off" id="connectdevice" data-loading-text="Connecting..." class="btn btn-lg btn-default">Connect</button>
+  <button id="listdevices" class="btn btn-lg btn-default" ng-click="loadDevices()">List Devices</button>
+  <button type="button" id="connectdevice" ng-click="connectDevice()" class="btn btn-lg btn-default">Connect</button>
 
 <!-- <div class="row spacer" style="margin-top:100px"></div> -->
 <!-- <button id="startbutton" class="btn btn-lg btn-default">Start</button>
 <button id="stopbutton" class="btn btn-lg btn-default">Stop</button>
 <button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button> -->
-<div class="row spacer" style="margin-top:100px"></div>
+  <div class="row spacer" style="margin-top:100px"></div>
 </center>
-</body>
 
 <script>
 $(document).ready(function () {
@@ -29,39 +28,27 @@ $(document).ready(function () {
     socket.emit('message', '`');
   });
 
-  $('#connectdevice').click(function(){
-    var $btn = $(this).button('loading')
-    console.log('button clicked')
-    socket.emit('message', 'b');
-    $btn.button('reset')
-  });
+  // $('#connectdevice').click(function(){
+  //   var $btn = $(this).button('loading')
+  //   console.log('button clicked')
+  //   socket.emit('message', 'b');
+  //   $btn.button('reset')
+  // });
 
-  $('#stopbutton').click(function(){
+  $('#disconnectdevice').click(function(){
     console.log('button clicked')
     socket.emit('message', 's');
   });
 
-  // $('#listports').click(function(){
-  //   console.log('button clicked')
-  //   socket.emit('listports', 'true');
-  // });
-
-  // socket.on('serialdevices', function(data){
-  //   devicesController.devices=data;
-  //   console.log(data)
-  // })
-
-});
-
-var value = 0
-$("#spinit").rotate({
-  bind:
-  {
-    click: function(){
-      value +=90;
-      $(this).rotate({ animateTo:value})
+  var value = 0
+  $("#spinit").rotate({
+    bind:
+    {
+      click: function(){
+        value +=90;
+        $(this).rotate({ animateTo:value})
+      }
     }
-  }
+  });
 });
-
 </script>

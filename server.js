@@ -3,7 +3,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
  var express = require("express");
+ var bodyParser = require("body-parser");
  var myApp = express();
+
+ // create application/json parser
+ var jsonParser = bodyParser.json()
+ myApp.use(bodyParser.urlencoded({ extended: false }));
 
  myApp.use(express.static(__dirname + '/public/'));
  myApp.use(express.static(__dirname + '/externals/'));
@@ -25,13 +30,14 @@
  });
  });
 
- // myApp.get('/connectdevice', function(req,res){
- //   //create a serialport object
- //   var serialPort = new SerialPort("/dev/tty.usbserial-DN0094J0", {
- //     baudrate: 115200,
- //     parser: serialport.parsers.readline("\n")
- //   });
- // });
+ myApp.post('/connectdevice', jsonParser, function(req,res){
+  //create a serialport object
+  //  var serialPort = new SerialPort(req.body.deviceName, {
+  //    baudrate: 115200,
+  //    parser: serialport.parsers.readline("\n")
+  //  });
+  console.log("Connecting to: " + req.body.deviceName)
+ });
 
 // start server on port 5000
  var port = process.env.PORT || 5000;
