@@ -20,6 +20,10 @@ var myApp = angular.module('myApp', [
       .when('/reactionTimeTask', {
         templateUrl: 'partials/reactionTimeTask.html',
         controller: 'mainController'
+      })
+      .when('/triggerTest', {
+        templateUrl: 'partials/triggerTest.html',
+        controller: 'mainController'
       });
 
       $locationProvider.html5Mode(true);
