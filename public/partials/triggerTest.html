@@ -45,7 +45,7 @@
     data: all_trials.data,
     timing_response: 100,
     timing_post_trial: post_trial_gap,
-    triggers: all_trials.trigger,
+    trigger: all_trials.trigger,
   };
 
 
@@ -67,11 +67,10 @@
   jsPsych.init({
     experiment_structure: experiment,
     display_element: $('#jspsych-target'),
-    on_finish: function() {
+    on_finish: function() {socket.emit('message', 's')  //end data stream
       jsPsych.data.displayData();
     }
   });
-  socket.emit('message', 's')  //end data stream
 
 
 </script>
