@@ -204,3 +204,6 @@ myApp.on('ready', function(){
 
 })
 */
+
+var spawn = require('child_process').spawn
+spawn('open', ['http://localhost:5000']);
