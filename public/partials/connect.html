@@ -12,6 +12,10 @@
   <button id="listdevices" class="btn btn-lg ladda-button" ng-click="listDevices()">List Devices</button>
   <!-- <button type="button" id="connectdevice" ng-click="connectDevice()" class="btn btn-lg btn-default">Connect</button> -->
   <button class="btn btn-lg ladda-button" ng-click="connectDevice()" data-style="zoom-in" data-spinner-color="black"><span class="ladda-label">{{connect}}</span></button>
+  <div class="row spacer" style="margin-top:100px"></div>
+  <button id="startstream" class="btn btn-lg" ng-click="startStream()">Start Stream</button>
+  <button id="stopstream" class="btn btn-lg" ng-click="stopStream()">Stop Stream</button>
+  <button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button>
 <!-- <div class="row spacer" style="margin-top:100px"></div> -->
 <!-- <button id="startbutton" class="btn btn-lg btn-default">Start</button>
 <button id="stopbutton" class="btn btn-lg btn-default">Stop</button>
@@ -23,6 +27,7 @@
 $(document).ready(function () {
 
   var socket = io.connect('http://localhost:8080');
+
   $('#triggerbutton').click(function(){
     console.log('button clicked')
     socket.emit('message', '`');
@@ -35,10 +40,10 @@ $(document).ready(function () {
   //   $btn.button('reset')
   // });
 
-  $('#disconnectdevice').click(function(){
-    console.log('button clicked')
-    socket.emit('message', 's');
-  });
+  // $('#disconnectdevice').click(function(){
+  //   console.log('button clicked')
+  //   socket.emit('message', 's');
+  // });
 
   var value = 0
   $("#spinit").rotate({
@@ -52,22 +57,22 @@ $(document).ready(function () {
   });
 
   // Bind normal buttons
-			Ladda.bind( 'div:not(.progress-demo) button', { timeout: 2000 } );
-
-			// Bind progress buttons and simulate loading progress
-			Ladda.bind( '.progress-demo button', {
-				callback: function( instance ) {
-					var progress = 0;
-					var interval = setInterval( function() {
-						progress = Math.min( progress + Math.random() * 0.1, 1 );
-						instance.setProgress( progress );
-
-						if( progress === 1 ) {
-							instance.stop();
-							clearInterval( interval );
-						}
-					}, 200 );
-				}
-			} );
+			// Ladda.bind( 'div:not(.progress-demo) button', { timeout: 2000 } );
+      //
+			// // Bind progress buttons and simulate loading progress
+			// Ladda.bind( '.progress-demo button', {
+			// 	callback: function( instance ) {
+			// 		var progress = 0;
+			// 		var interval = setInterval( function() {
+			// 			progress = Math.min( progress + Math.random() * 0.1, 1 );
+			// 			instance.setProgress( progress );
+      //
+			// 			if( progress === 1 ) {
+			// 				instance.stop();
+			// 				clearInterval( interval );
+			// 			}
+			// 		}, 200 );
+			// 	}
+			// } );
 });
 </script>

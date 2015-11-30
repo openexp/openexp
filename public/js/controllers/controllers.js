@@ -3,6 +3,7 @@ mainController.controller('mainController', ['$scope', '$filter', '$location', '
 
     // set value of the connect button
     $scope.connect = "Connect";
+    $scope.datastreaming = false;
 
     // loads in the list of possible serial devices to connect to
     $scope.devices = [{Name:' '},{Name:' '},{Name:' '}];
@@ -26,5 +27,22 @@ mainController.controller('mainController', ['$scope', '$filter', '$location', '
       $scope.connect = "Disconnect";
       });
     };
+
+    $scope.startStream = function() {
+      $http.get("/startstream").success(function (data) {
+        $scope.datastreaming = true;
+        });
+    };
+
+    $scope.stopStream = function() {
+      $http.get("/stopstream").success(function (data) {
+        $scope.datastreaming = false;
+        });
+    };
+
+    // $scope.sendTrigger = function() {
+    //   $http.get("/trigger").success(function (data) {
+    //     });
+    // };
 
 }]);

@@ -32,13 +32,37 @@
 
  myApp.post('/connectdevice', jsonParser, function(req,res){
   //create a serialport object
-  //  var serialPort = new SerialPort(req.body.deviceName, {
-  //    baudrate: 115200,
-  //    parser: serialport.parsers.readline("\n")
-  //  });
+     serialPort = new SerialPort(req.body.deviceName, {
+     baudrate: 115200,
+     parser: serialport.parsers.readline("\n")
+   });
+    serialPort.on("open", function () {
+      console.log('serial connection open: ' + serialPort.isOpen());
+      serialPort.on("data", function(data) {
+        //console.log('data received: ' + data.toString());
+      });
+      serialPort.on("error", function(error) {
+        console.log(error);
+      });
+      serialPort.write('v');
+      console.log('OpenBCI board reset to default state')
+    });
   console.log("Connecting to: " + req.body.deviceName)
   res.json({"Connected":true})
  });
+
+myApp.get('/startstream', function(req,res){
+  writeAndDrain('b');
+  console.log("Starting streaming")
+  res.json({"datastreaming":true})
+});
+
+myApp.get('/stopstream', function(req,res){
+  writeAndDrain('s');
+  console.log("Stopped streaming")
+  res.json({"datastreaming":false})
+});
+
 
  myApp.post('/disconnectdevice', jsonParser, function(req,res){
   //create a serialport object
@@ -124,13 +148,13 @@ var SerialPort = serialport.SerialPort;
 // });
 //
 //
-// // code to write a trigger
-// function writeAndDrain (data, callback) {
-//   serialPort.write(data, function () {
-//     serialPort.drain(callback);
-//     console.log('sent:' + data);
-//   });
-// }
+// code to write a trigger
+function writeAndDrain (data, callback) {
+  serialPort.write(data, function () {
+    serialPort.drain(callback);
+    console.log('sent:' + data);
+  });
+}
 //
 //
 // // create a serialport object
