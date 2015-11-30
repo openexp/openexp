@@ -67,7 +67,7 @@ div.hidden {
 
 /*color of device selected to connect to*/
 .selected {
-  background-color: yellow;
+  background-color: lightblue;
 }
 
 .table-rounded {

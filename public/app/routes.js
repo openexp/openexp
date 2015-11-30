@@ -9,6 +9,10 @@ var myApp = angular.module('myApp', [
         templateUrl: 'partials/main.html',
         controller: 'mainController'
       })
+      .when('/connect', {
+        templateUrl: 'partials/connect.html',
+        controller: 'mainController'
+      })
       .when('/dashboard', {
         templateUrl: 'partials/dashboard.html',
         controller: 'mainController'

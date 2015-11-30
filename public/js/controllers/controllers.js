@@ -1,11 +1,15 @@
 var mainController = angular.module('mainController', []);
 mainController.controller('mainController', ['$scope', '$filter', '$location', '$log', '$http', function($scope, $filter, $location, $log, $http) {
 
+    // set value of the connect button
+    $scope.connect = "Connect";
+
     // loads in the list of possible serial devices to connect to
     $scope.devices = [{Name:' '},{Name:' '},{Name:' '}];
-    $scope.loadDevices = function() {
+    $scope.listDevices = function() {
+    //$scope.connect = "Connect";
     $scope.nameSelectedDevice = null;
-    $http.get("/getserial").success(function (data) {
+    $http.get("/listdevices").success(function (data) {
       $scope.devices = data;
       });
     };
@@ -16,11 +20,10 @@ mainController.controller('mainController', ['$scope', '$filter', '$location', '
         console.log($scope.nameSelectedDevice)
     };
 
-    //connects to the board
+    //connects/disconnects the board
     $scope.connectDevice = function() {
-    $scope.connected = false;
     $http.post("/connectdevice", {"deviceName": $scope.nameSelectedDevice}).success(function (data) {
-      $scope.connected = data;
+      $scope.connect = "Disconnect";
       });
     };
 

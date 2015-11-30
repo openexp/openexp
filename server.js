@@ -19,14 +19,14 @@
     console.log("Loaded index.")
  });
 
- myApp.get('/getserial', function(req,res){
+ myApp.get('/listdevices', function(req,res){
    devices=[]
    serialport.list(function (err, ports) {
      ports.forEach(function(port) {
         devices.push({Name: port.comName})
    });
    res.json(devices);
-   console.log(devices);
+   //console.log(devices);
  });
  });
 
@@ -37,6 +37,17 @@
   //    parser: serialport.parsers.readline("\n")
   //  });
   console.log("Connecting to: " + req.body.deviceName)
+  res.json({"Connected":true})
+ });
+
+ myApp.post('/disconnectdevice', jsonParser, function(req,res){
+  //create a serialport object
+  //  var serialPort = new SerialPort(req.body.deviceName, {
+  //    baudrate: 115200,
+  //    parser: serialport.parsers.readline("\n")
+  //  });
+  console.log("Disconnecting from: " + req.body.deviceName)
+  res.json({"Connected":false})
  });
 
 // start server on port 5000
