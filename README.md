@@ -1,26 +1,36 @@
 [![Stories in Ready](https://badge.waffle.io/OpenBCI/OpenEXP.png?label=ready&title=Ready)](https://waffle.io/OpenBCI/OpenEXP)
 # OpenEXP
-OpenEXP is an open-source browser-based web app for running experiments and collecting EEG data with OpenBCI.
+OpenEXP is an open-source browser-based web app for running experiments and collecting EEG data with OpenBCI. This is supported with [jsPsych](https://github.com/jodeleeuw/jsPsych) for the stimulus presentation backend.
 
-# download repo
-git clone --recursive [URL]
+This software is currently in alpha stage but it is being rapidly optimized and improved. To get started, please follow the following steps:
 
-# install npm
-https://nodejs.org/en/
+# 1. Download OpenEXP repo
+This repo is currently using a submodule, which requires the `--recursive` flag for proper downloading.
 
-# install dependencies
-by executing this line in project folder: npm install
+```
+git clone --recursive https://github.com/OpenBCI/OpenEXP.git
+```
 
-# plug it in
-plug in your openbci dongle
+# 2. Install NPM
+Download or use [NodeJS](https://nodejs.org/en/) to support js dependencies.
 
-# to deploy
-node server.js
+# 3. Install the dependencies
+```
+npm install --all
+```
 
-# to view
-point your browser to: http://localhost:5000
+# 4. Plug it in
+Plug in your OpenBCI dongle :)
 
-# thank you
+# 5. Deploy
+This will launch a browser window and it will begin your OpenEXP session.
+
+```node server.js```
+
+# 6. Connect
+Click the Connect tab, load devices with `List Devices`, and click `Connect`.
+
+# A special thank you
 Thanks Josh DeLeeuw for sharing [jsPsych](https://github.com/jodeleeuw/jsPsych), the force behind the stimulus presentation and behavioral data collection/organization
 
 (tested in chrome 46.0.2490.86 (64-bit) with mac osx yosemite 10.10.3)
