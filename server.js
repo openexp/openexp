@@ -19,6 +19,7 @@
     console.log("Loaded index.")
  });
 
+// gets devices list using serialport
  myApp.get('/listdevices', function(req,res){
    devices=[]
    serialport.list(function (err, ports) {
@@ -30,8 +31,9 @@
  });
  });
 
+// connects to board on request
  myApp.post('/connectdevice', jsonParser, function(req,res){
-  //create a serialport object
+     //create a serialport object
      serialPort = new SerialPort(req.body.deviceName, {
      baudrate: 115200,
      parser: serialport.parsers.readline("\n")
@@ -39,12 +41,12 @@
     serialPort.on("open", function () {
       console.log('serial connection open: ' + serialPort.isOpen());
       serialPort.on("data", function(data) {
-        //console.log('data received: ' + data.toString());
+      //console.log('data received: ' + data.toString());
       });
       serialPort.on("error", function(error) {
         console.log(error);
       });
-      serialPort.write('v');
+      writeAndDrain('v');
       console.log('OpenBCI board reset to default state')
     });
   console.log("Connecting to: " + req.body.deviceName)
@@ -65,16 +67,14 @@ myApp.get('/stopstream', function(req,res){
 
 
  myApp.post('/disconnectdevice', jsonParser, function(req,res){
-  //create a serialport object
-  //  var serialPort = new SerialPort(req.body.deviceName, {
-  //    baudrate: 115200,
-  //    parser: serialport.parsers.readline("\n")
-  //  });
+  writeAndDrain('s');
+  writeAndDrain('v');
+  //delete serialPort;
   console.log("Disconnecting from: " + req.body.deviceName)
   res.json({"Connected":false})
  });
 
-// start server on port 5000
+// start express server on port 5000
  var port = process.env.PORT || 5000;
  myApp.listen(port, function() {
    console.log('Point your browser to http://localhost:' + port);

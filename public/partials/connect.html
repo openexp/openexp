@@ -11,11 +11,12 @@
 
   <button id="listdevices" class="btn btn-lg ladda-button" ng-click="listDevices()">List Devices</button>
   <!-- <button type="button" id="connectdevice" ng-click="connectDevice()" class="btn btn-lg btn-default">Connect</button> -->
-  <button class="btn btn-lg ladda-button" ng-click="connectDevice()" data-style="zoom-in" data-spinner-color="black"><span class="ladda-label">{{connect}}</span></button>
+  <button ng-disabled="isDisabled" class="btn btn-lg ladda-button" ng-click="connectDevice()" data-style="zoom-in" data-spinner-color="black"><span class="ladda-label" >{{connect}}</span></button>
   <div class="row spacer" style="margin-top:100px"></div>
   <button id="startstream" class="btn btn-lg" ng-click="startStream()">Start Stream</button>
   <button id="stopstream" class="btn btn-lg" ng-click="stopStream()">Stop Stream</button>
   <button id="triggerbutton" class="btn btn-lg btn-default">Touch Me</button>
+  <button id="triggertoggle" class="btn btn-lg btn-default" ng-click=triggerToggle()>{{triggerStatus}}</button>
 <!-- <div class="row spacer" style="margin-top:100px"></div> -->
 <!-- <button id="startbutton" class="btn btn-lg btn-default">Start</button>
 <button id="stopbutton" class="btn btn-lg btn-default">Stop</button>

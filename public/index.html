@@ -67,6 +67,8 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+        <li><a href="/connect">{{connectStatus}}</a></li>
+        <li><a href="/connect">{{triggerStatus}}</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
 			<ul id="login-dp" class="dropdown-menu">
@@ -121,7 +123,6 @@
   <!-- <div class="row spacer" style="margin-top:100px"></div> -->
   <div>
     <div ng-view></div> <!--this is where we will inject code for different pages-->
-
   </div>
 
 </body>
