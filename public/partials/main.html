@@ -1,0 +1,29 @@
+<div class="row spacer" style="margin-top:100px"></div>
+<center>
+  <div>
+    <img id="spinit" src="img/headerlogofront.png" width="300"/>
+  </div>
+  <div class="row spacer" style="margin-top:100px"></div>
+  <h3 class="">OpenEXP is an open-source browser-based application for running experiments and collecting EEG data with OpenBCI hardware.</h4>
+    <div class="row spacer" style="margin-top:100px"></div>
+<!--<button class="btn btn-lg btn-default">Learn More</button>-->
+</center>
+
+<script>
+// // fade in the logo
+// $(document).ready(function () {
+//   $('div.hidden').fadeIn(1000).removeClass('hidden');
+// });
+
+// spin the OpenBCI logo
+var value = 0
+$("#spinit").rotate({
+  bind:
+  {
+    click: function(){
+      value +=90;
+      $(this).rotate({ animateTo:value})
+    }
+  }
+});
+</script>
