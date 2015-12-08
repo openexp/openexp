@@ -5,6 +5,10 @@ module.exports = router;
 
 // Make sure this is after all of
 // the registered routes!
+router.use('/device', require('./device'));
+
+
+
 router.use(function (req, res) {
     res.status(404).end();
 });
