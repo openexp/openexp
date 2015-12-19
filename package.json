@@ -1,6 +1,6 @@
 {
   "name": "openexp",
-  "version": "0.0.2",
+  "version": "0.1",
   "description": "open-source browser-based interface for running experiments with openbci",
   "main": "server.js",
   "dependencies": {

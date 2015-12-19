@@ -1,7 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/OpenBCI/OpenEXP.png?label=ready&title=Ready)](https://waffle.io/OpenBCI/OpenEXP)
-# OpenEXP
-
 [![Join the chat at https://gitter.im/OpenBCI/OpenEXP](https://badges.gitter.im/OpenBCI/OpenEXP.svg)](https://gitter.im/OpenBCI/OpenEXP?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# OpenEXP
 OpenEXP is an open-source browser-based web app for running experiments and collecting EEG data with OpenBCI. This is supported with [jsPsych](https://github.com/jodeleeuw/jsPsych) for the stimulus presentation backend.
 
 This software is currently in alpha stage but it is being rapidly optimized and improved. To get started, please follow the following steps:
