@@ -18,6 +18,9 @@ app.on('ready', function () {
     // Tell Electron where to load the entry point from
     mainWindow.loadURL('file://' + __dirname + '/../client/index.html');
 
+
+    mainWindow.openDevTools();
+
     // Clear out the main window when the app is closed
     mainWindow.on('closed', function () {
 

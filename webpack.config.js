@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-
 module.exports = {
     entry: {
         vendor: './client/vendor.js',
@@ -23,19 +22,11 @@ module.exports = {
     },
 
     resolve: {
-<<<<<<< HEAD
         root: [path.join(__dirname, "/node_modules")]
     },
     devServer: {
         hot: true
     },
-=======
-        root: [path.resolve(__dirname, "./node_modules")]
-    },
-
-    devtool: "eval",
-
->>>>>>> fee91df... saving
     module: {
         loaders: [
             {test: /src.*\.js$/, loaders: ['ng-annotate', 'babel-loader'], exclude: /node_modules/},
