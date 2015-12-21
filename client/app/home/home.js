@@ -4,6 +4,6 @@ angular.module('OpenEXP')
             .state('home', {
                 url: '/',
                 controller: 'HomeCtrl',
-                template: require('html!./home.html')
+                templateUrl: './app/home/home.html'
         })
     });

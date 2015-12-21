@@ -5,3 +5,5 @@ build
 public
 .DS_Store
 coverage
+
+webpack.config.js

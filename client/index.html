@@ -2,31 +2,14 @@
 <head>
     <meta charset="UTF-8">
     <title>OpenEXP</title>
+    <script src="./build/vendor.js"></script>
+    <script src="./build/app.js"></script>
 </head>
 <body ng-app="OpenEXP">
     <header id="nav">
         <navbar></navbar>
     </header>
     <div id="main" ui-view=""></div>
-    <script>
-    var vendorPath = './build/vendor.js';
-    var appPath = './build/app.js';
-
-
-    if(typeof process !== 'undefined' && process.env.ENVIRONMENT === 'DEV') {
-        vendorPath = 'http://localhost:8080/build/vendor.js';
-        appPath = 'http://localhost:8080/build/app.js';
-    }
-
-    var vendorScriptEl = document.createElement('script');
-    vendorScriptEl.src = vendorPath;
-    document.currentScript.parentNode.insertBefore(vendorScriptEl, document.currentScript);
-
-    var appScriptEl = document.createElement('script');
-    appScriptEl.src = appPath;
-    document.currentScript.parentNode.insertBefore(appScriptEl, document.currentScript);
-
-    </script>
 
 </body>
 </html>

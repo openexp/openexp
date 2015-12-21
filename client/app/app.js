@@ -1,11 +1,11 @@
+
 angular.module('OpenEXP', [
     'ui.router'
 ])
-   .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+   .config(($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
-    $locationProvider.html5mode(false);
 })
-    .run(($rootscope, $state) => {
+    .run(($state, $rootscope) => {
 
     });

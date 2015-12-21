@@ -2,7 +2,7 @@ angular.module('OpenEXP')
     .directive('navbar', () => {
         return {
             restrict: 'E',
-            template: require('html!./navbar.html'),
+            templateUrl: './components/navbar/navbar.html',
             controller: 'navbarController'
         }
     });
