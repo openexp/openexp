@@ -6,6 +6,6 @@ angular.module('OpenEXP', [
     $urlRouterProvider.otherwise('/');
 
 })
-    .run(($state, $rootscope) => {
+    .run(($state) => {
 
     });

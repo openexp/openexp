@@ -4,6 +4,6 @@ angular.module('OpenEXP')
             .state('reactionTimeTask', {
                 url: '/',
                 controller: 'HomeCtrl',
-                template: require('html!./reactionTimeTask.html')
+                template: './app/experiments/reactionTimeTask.html'
         })
     });

@@ -4,6 +4,6 @@ angular.module('OpenEXP')
             .state('connect', {
                 url: '/',
                 controller: 'HomeCtrl',
-                template: require('html!./connect.html')
+                template: './app/connect/connect.html'
         })
     });
