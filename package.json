@@ -1,30 +1,51 @@
 {
   "name": "openexp",
-  "version": "0.1",
-  "description": "open-source browser-based interface for running experiments with openbci",
-  "main": "server.js",
-  "dependencies": {
-    "angular": "^1.4.7",
-    "body-parser": "^1.14.1",
-    "httpdispatcher": "^0.4.0",
-    "mongoose": "^4.2.7",
-    "express": "^4.13.3",
-    "serialport": "^2.0.5",
-    "socket.io": "^1.3.7"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andyh616/OpenEXP.git"
-  },
+  "version": "0.1.1",
+  "description": "An open-source mean stack app for running experiments with openbci",
   "author": "Andy Heusser & Teon Brooks",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/andyh616/OpenEXP/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenBCI/OpenEXP.git"
   },
-  "homepage": "https://github.com/andyh616/OpenEXP#readme"
+  "bugs": {
+    "url": "https://github.com/OpenBCI/OpenEXP/issues"
+  },
+  "homepage": "https://github.com/OpenBCI/OpenEXP#readme",
+  "main": "server/start.js",
+  "scripts": {
+    "build": "webpack --content-base client/ --progress --profile --colors --display-error-details --display-cached",
+    "watch": "webpack-dev-server --content-base client/ --watch --progress --profile --colors --display-error-details --display-cached",
+    "start": "ENVIRONMENT=DEV electron electron/main"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "css-loader": "^0.23.0",
+    "electron-prebuilt": "^0.35.4",
+    "expose-loader": "^0.7.1",
+    "file-loader": "^0.8.5",
+    "image-webpack-loader": "^1.6.2",
+    "lodash": "^3.10.1",
+    "ng-annotate-loader": "0.0.10",
+    "ng-annotate-webpack-plugin": "^0.1.2",
+    "node-sass": "^3.4.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.1.2",
+    "script-loader": "^0.6.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9",
+    "webpack-angular-injector-plugin": "^1.0.0",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-hot-middleware": "^2.6.0"
+  },
+  "dependencies": {
+    "angular": "1.5.0-rc.0",
+    "angular-ui-bootstrap": "^0.14.3",
+    "angular-ui-router": "^0.2.15",
+    "babel": "^6.3.13",
+    "bootstrap": "^3.3.6",
+    "gulp": "^3.9.0",
+    "jquery": "^2.1.4"
+  }
 }
