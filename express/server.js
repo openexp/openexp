@@ -17,7 +17,7 @@
 
  // serves main page
  myApp.get('/', function(req, res) {
-    res.sendFile(__dirname + '/home.html')
+    res.sendFile(__dirname + '/index.html')
     console.log("Loaded index.")
  });
 
