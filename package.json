@@ -48,6 +48,14 @@
     "gulp": "^3.9.0",
     "openbci-sdk": "0.1.0",
     "jquery": "^2.1.4",
-    "jspsych": "git://github.com/teonlamont/jsPsych.git#590313c2fc528c147a5d6040f001c7407ee3623b"
+    "jspsych": "git://github.com/teonlamont/jsPsych.git#590313c2fc528c147a5d6040f001c7407ee3623b",
+    "jquery": "^2.1.4",
+    "body-parser": "^1.14.1",
+    "bootstrap": "3.3.6",
+    "d3": "3.5.12",
+    "express": "^4.13.3",
+    "ladda": "0.9.8",
+    "serialport": "^2.0.5",
+    "socket.io": "^1.3.7"
   }
 }
