@@ -1,3 +1,0 @@
-[submodule "client/externals/jsPsych"]
-	path = client/externals/jsPsych
-	url = https://github.com/teonlamont/jsPsych.git

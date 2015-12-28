@@ -46,6 +46,8 @@
     "babel": "^6.3.13",
     "bootstrap": "^3.3.6",
     "gulp": "^3.9.0",
-    "jquery": "^2.1.4"
+    "openbci-sdk": "0.1.0",
+    "jquery": "^2.1.4",
+    "jspsych": "git://github.com/teonlamont/jsPsych.git#590313c2fc528c147a5d6040f001c7407ee3623b"
   }
 }
