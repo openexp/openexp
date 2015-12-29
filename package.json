@@ -34,7 +34,6 @@
     "sass-loader": "^3.1.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.9",
     "webpack-angular-injector-plugin": "^1.0.0",
     "webpack-dev-server": "^1.14.0",
     "webpack-hot-middleware": "^2.6.0"
@@ -48,6 +47,8 @@
     "gulp": "^3.9.0",
     "openbci-sdk": "0.1.0",
     "jquery": "^2.1.4",
-    "jspsych": "git://github.com/teonlamont/jsPsych.git#590313c2fc528c147a5d6040f001c7407ee3623b"
+    "jspsych": "git://github.com/teonlamont/jsPsych.git#590313c2fc528c147a5d6040f001c7407ee3623b",
+    "webpack": "^1.12.9"
+
   }
 }
