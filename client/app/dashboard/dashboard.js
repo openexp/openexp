@@ -1,9 +1,9 @@
 angular.module('OpenEXP')
     .config($stateProvider => {
         $stateProvider
-            .state('connect', {
+            .state('dashboard', {
                 url: '/',
                 controller: 'HomeCtrl',
-                templateUrl: './app/connect/connect.html'
+                templateUrl: './app/dashboard/dashboard.html'
         })
     });
