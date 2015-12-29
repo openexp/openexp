@@ -15,7 +15,7 @@ module.exports = {
     "target": 'atom',
 
     output: {
-        path: path.resolve(__dirname, './client/build'),
+        path: __dirname + '/client/build',
         publicPath: '/build/',
         filename: '[name].js',
         pathinfo: true
@@ -30,9 +30,10 @@ module.exports = {
     module: {
         loaders: [
             {test: /src.*\.js$/, loaders: ['ng-annotate', 'babel-loader'], exclude: /node_modules/},
-            {test: /\.(eot|woff|svg|woff2|dtd|ttf)$/, loaders: ["file"] },
-            {test: /\.scss$/, loaders: ["style", "css", "sass?"]},
-            {test: /\.(jpe?g|png|gif|svg)$/i, loaders: []}
+            {test: /\.(eot|woff|svg|woff2|dtd|ttf)$/, loaders: ["file"], exclude: /node_modules/ },
+            {test: /\.scss$/, loaders: ["style", "css", "sass?"], exclude: /node_modules/},
+            {test: /\.(jpe?g|png|gif|svg)$/i, loaders: [], exclude: /node_modules/},
+            { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
         ]
     },
 
