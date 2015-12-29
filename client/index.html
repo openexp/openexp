@@ -2,18 +2,18 @@
 <head>
     <meta charset="UTF-8">
     <title>OpenEXP</title>
-    <script src="./build/vendor.js"></script>
-    <script src="./build/app.js"></script>
-    <!-- jsPsych import -->
-    <script src="externals/jsPsych/jspsych.js"></script>
-    <script src="externals/jsPsych/plugins/jspsych-text.js"></script>
-    <script src="externals/jsPsych/plugins/jspsych-single-stim.js"></script>
+
 </head>
 <body ng-app="OpenEXP">
     <header id="nav">
         <navbar></navbar>
     </header>
+
     <div id="main" ui-view=""></div>
+
+    <script src="http://localhost:8080/webpack-dev-server.js"></script>
+    <script src="http://localhost:8080/build/vendor.js"></script>
+    <script src="http://localhost:8080/build/app.js"></script>
 
 </body>
 </html>
