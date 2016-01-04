@@ -3,7 +3,7 @@ angular.module('OpenEXP')
         $stateProvider
             .state('reactionTimeTask', {
                 url: '/',
-                controller: 'HomeCtrl',
+                controller: 'ReactionCtrl',
                 templateUrl: './app/experiments/reactionTimeTask/reactionTimeTask.html'
         })
     });

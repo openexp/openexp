@@ -3,7 +3,7 @@ angular.module('OpenEXP')
         $stateProvider
             .state('triggerTest', {
                 url: '/',
-                controller: 'HomeCtrl',
+                controller: 'TriggerCtrl',
                 template: './app/experiments/triggerTest/triggerTest.html'
         })
     });
