@@ -3,7 +3,7 @@ angular.module('OpenEXP')
         $stateProvider
             .state('connect', {
                 url: '/',
-                controller: 'HomeCtrl',
+                controller: 'ConnectCtrl',
                 templateUrl: './app/connect/connect.html'
         })
     });

@@ -3,7 +3,7 @@ angular.module('OpenEXP')
         $stateProvider
             .state('dashboard', {
                 url: '/',
-                controller: 'HomeCtrl',
+                controller: 'DashboardCtrl',
                 templateUrl: './app/dashboard/dashboard.html'
         })
     });

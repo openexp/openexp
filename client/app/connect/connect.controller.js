@@ -1,4 +1,4 @@
 angular.module('OpenEXP')
-    .controller('HomeCtrl', ['$scope', ($scope) => {
+    .controller('ConnectCtrl', ['$scope', ($scope) => {
 
     }]);
