@@ -1,3 +1,25 @@
 .main-navbar {
   border-radius: 0;
 }
+
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+  border-radius: 0;
+  > li {
+    float: none;
+    display: inline-block;
+  }
+}
+
+.btn:focus,.btn:active {
+   outline: none !important;
+  //  border: none !important;
+}
+
+.dropdown-nav {
+  border: none;
+  border-shadow: none;
+  background-color: #222222;
+  color: #FFFFFF;
+}

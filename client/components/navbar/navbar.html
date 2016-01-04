@@ -1,50 +1,13 @@
+<link href='https://fonts.googleapis.com/css?family=Kanit:400,500italic' rel='stylesheet' type='text/css'>
 <nav class="navbar navbar-inverse main-navbar">
-    <div class="container-fluid">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" ui-sref="home">
-                <img id="logo" alt="Brand" src="assets/images/headerlogofront.png" height="25px"/>
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a ui-sref="connect">Connect</a></li>
-                <li><a ui-sref="dashboard">Dashboard</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiments <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a ui-sref="reactionTimeTask">Reaction Time Task</a></li>
-                        <li><a href="#">Memory Study - Pictures</a></li>
-                        <li><a href="#">Language Study - Words</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!--TODO: build out user accounts, preferably oauth-->
-            <!--<ul class="nav navbar-nav navbar-right">-->
-            <!--<li><a href="#">Need Help?</a></li>-->
-            <!--<form class="navbar-form navbar-right" role="search">-->
-            <!--<div class="form-group">-->
-            <!--<input type="text" class="form-control" name="username" placeholder="Username">-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-            <!--<input type="password" class="form-control" name="password" placeholder="Password">-->
-            <!--</div>-->
-            <!--<button type="submit" class="btn btn-default">Sign In</button>-->
-            <!--</form>-->
-            <!--</ul>-->
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      <ul class="nav navbar-nav">
+        <li class="pull-left"><button ui-sref="connect" style="margin-top:10px; margin-left:15px;" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-off"></button></li>
+        <!-- <li><button style="font-family: Kanit; font-size:20px; padding-left:120px; margin-top:3px; text-decoration:none" ui-sref="connect" type="button" class="btn btn-link"><span><i>OpenEXP</i></button></li> -->
+          <div style="margin-top:3px" class="pull-right btn-group" role="group" aria-label="...">
+            <button ui-sref="dashboard" type="button" class="btn btn-lg btn-link"><span class="glyphicon glyphicon-eye-open"></button>
+            <button ui-sref="experiments" type="button" class="btn btn-lg btn-link"><span class="glyphicon glyphicon-triangle-right"></button>
+              <button ui-sref="analyze" type="button" class="btn btn-lg btn-link"><span class="glyphicon glyphicon-stats"></button>
+            <button ui-sref="settings" class="btn btn-lg btn-link dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></button>
+          </div>
+      </ul>
 </nav>

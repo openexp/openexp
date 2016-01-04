@@ -15,6 +15,8 @@ module.exports = function() {
     require('./app/connect/connect.controller.js');
     require('./app/dashboard/dashboard.js');
     require('./app/dashboard/dashboard.controller.js');
+    require('./app/login/login.js');
+    require('./app/login/login.controller.js');
     require('./app/experiments/reactionTimeTask/reactionTimeTask.js');
     require('./app/experiments/reactionTimeTask/reactionTimeTask.controller.js');
     require('./app/experiments/triggerTest/triggerTest.js');
