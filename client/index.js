@@ -1,7 +1,14 @@
 module.exports = function() {
+
     // APP
     require('./app/app.scss');
     require('./app/app');
+
+    // Factory Methods
+    require('./components/board/boardFactory.js');
+    require('./components/board/simulatorFactory.js');
+
+    //
     require('./app/home/home.js');
     require('./app/home/home.controller.js');
     require('./app/connect/connect.js');
@@ -12,7 +19,6 @@ module.exports = function() {
     require('./app/experiments/reactionTimeTask/reactionTimeTask.controller.js');
     require('./app/experiments/triggerTest/triggerTest.js');
     require('./app/experiments/triggerTest/triggerTest.controller.js');
-    require('./components/board/boardFactory.js');
 
     // COMPONENTS
     require('./components/navbar/navbar.js');

@@ -1,4 +1,5 @@
 window.jQuery = window.$ = require("jquery");
+
 module.exports = function() {
     // CSS
     require('style!css!bootstrap/dist/css/bootstrap.min.css');
