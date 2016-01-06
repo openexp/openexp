@@ -4,17 +4,25 @@ angular.module('OpenEXP')
         //console.log(OpenBCIBoard)
         const ourBoard = new OpenBCIBoard.OpenBCIBoard();
 
-        var findPorts = () => {
-            return new Promise((res, rej) => {
-                ourBoard.autoFindOpenBCIBoard((portName, ports) => {
-                    if(portName) {
-                        res(connect());
-                    } else {
-                        res(ports);
-                    }
-                })
-            });
-        };
+        var findPorts = ourBoard.autoFindOpenBCIBoard;
+
+
+        //var findPorts = () => {
+        //    ourBoard.autoFindOpenBCIBoard();
+        //};
+            //return new Promise((res, rej) => {
+            //    ourBoard.autoFindOpenBCIBoard((portName, ports) => {
+            //        if(portName) {
+            //            res(connect());
+            //        } else {
+            //            res(ports);
+            //        }
+            //    })
+            //});
+            //return ourBoard.autoFindOpenBCIBoard
+
+
+        //};
 
 
         var storage = {};
@@ -43,7 +51,7 @@ angular.module('OpenEXP')
 
 
         return {
-            findPorts, findPorts,
+            findPorts: findPorts,
             connect: connect,
             publish: publish,
             unpublish: unpublish
