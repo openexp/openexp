@@ -8,6 +8,10 @@ angular.module('OpenEXP')
 
         $scope.selected;
 
+
+        $scope.startStream = boardFactory.publish;
+        $scope.stopStream = boardFactory.unpublish;
+
         $scope.listDevices = () => {
             boardFactory.findPorts()
                 .then(ports => {
@@ -23,21 +27,3 @@ angular.module('OpenEXP')
         };
 
     }]);
-
-//OpenBCIBoard.prototype.autoFindOpenBCIBoard = function() {
-//    var macSerialPrefix = 'usbserial-D';
-//
-//    return new Promise((resolve, reject) => {
-//        serialPort.list((err, ports) => {
-//            if(ports.some(port => {
-//                    if(port.comName.includes(macSerialPrefix)) {
-//                        this.portName = port.comName;
-//                        return true;
-//                    }
-//                })) {
-//                resolve(this.connect(this.portName))
-//            }
-//            else resolve(ports)
-//        })
-//    })
-//};
