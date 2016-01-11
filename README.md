@@ -32,7 +32,7 @@ and in a separate terminal window...
 
 Plug in your OpenBCI dongle :)
 
-Click the Connect button on the top left of the app to auto-find your device.  If the device is not found it will return a list of available devices to connect to
+Click the Connect button on the top left of the app to auto-find your device.  If the device is not found it will return a list of available devices to connect to.
 
 # A special thank you
 Thanks Josh DeLeeuw for sharing [jsPsych](https://github.com/jodeleeuw/jsPsych), the force behind the stimulus presentation and behavioral data collection/organization
