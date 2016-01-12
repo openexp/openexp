@@ -12,6 +12,7 @@ module.exports = function() {
     require('./app/experiments/reactionTimeTask/reactionTimeTask.controller.js');
     require('./app/experiments/triggerTest/triggerTest.js');
     require('./app/experiments/triggerTest/triggerTest.controller.js');
+    require('./components/board/boardFactory.js');
 
     // COMPONENTS
     require('./components/navbar/navbar.js');
