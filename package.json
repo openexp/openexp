@@ -50,7 +50,7 @@
     "jquery": "^2.1.4",
     "jspsych": "git://github.com/teonlamont/jsPsych.git#590313c2fc528c147a5d6040f001c7407ee3623b",
     "ngmin": "^0.5.0",
-    "openbci-sdk": "0.1.1",
+    "openbci-sdk": "^0.1.1",
     "url-loader": "^0.5.7"
   }
 }

@@ -1,7 +1,14 @@
 module.exports = function() {
+
     // APP
     require('./app/app.scss');
     require('./app/app');
+
+    // Factory Methods
+    require('./components/board/boardFactory.js');
+    require('./components/board/simulatorFactory.js');
+
+    //
     require('./app/home/home.js');
     require('./app/home/home.controller.js');
     require('./app/connect/connect.js');
