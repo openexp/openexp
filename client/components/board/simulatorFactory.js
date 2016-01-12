@@ -1,22 +1,28 @@
 angular.module('OpenEXP')
     .factory('simulatorFactory', () => {
-        const OpenBCIBoardSim = require('openbci-sdk');
-        const ourBoardSim = OpenBCIBoardSim.OpenBCIBoard();
+        const OpenBCIBoard = require('openbci-sdk');
+        const ourBoard = new OpenBCIBoard.OpenBCIBoard();
 
         var storage = {};
 
         var simulatorStart = () => {
-            ourBoardSim.simulatorStart()
+            ourBoard.simulatorStart()
                 .then(() => {
-                    ourBoardSim.on('sample',sample => {
+                    ourBoard.on('sample',sample => {
                         storage[sample.sampleNumber] = sample;
                     })
                 }).catch(err => console.log('Error [simulator]: ' + err))
         };
 
-        var publish = (observer) => Object.observe(storage, observer);
+        var observer = function(changes) {
+            changes.forEach(change => {
+                if(change.type === "add") console.log(change)
+            })
+        };
 
-        var unpublish = (observer) => Object.unobserve(storage, observer);
+        var publish = () => Object.observe(storage, observer);
+
+        var unpublish = () => Object.unobserve(storage, observer);
 
         return {
             simulatorStart: simulatorStart,

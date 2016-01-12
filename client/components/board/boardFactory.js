@@ -14,8 +14,6 @@ angular.module('OpenEXP')
                 })
             });
         };
-
-
         var storage = {};
 
         var connect = (portName) => {
@@ -29,8 +27,6 @@ angular.module('OpenEXP')
             });
         };
 
-
-
         var observer = function(changes) {
             changes.forEach(change => {
                 if(change.type === "add") console.log(change)
@@ -40,6 +36,7 @@ angular.module('OpenEXP')
         var publish = () => Object.observe(storage, observer);
 
         var unpublish = () => Object.unobserve(storage, observer);
+
 
         return {
             findPorts: findPorts,

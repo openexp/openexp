@@ -1,5 +1,5 @@
 angular.module('OpenEXP')
-    .controller('ConnectCtrl', ['$scope','boardFactory', ($scope, boardFactory) => {
+    .controller('ConnectCtrl', ['$scope','boardFactory', 'simulatorFactory', ($scope, boardFactory, simulatorFactory) => {
         var _ = require('lodash');
 
         $scope.connect = boardFactory.connect;
@@ -8,9 +8,10 @@ angular.module('OpenEXP')
 
         $scope.selected;
 
+        $scope.simStart = simulatorFactory.simulatorStart;
 
-        $scope.startStream = boardFactory.publish;
-        $scope.stopStream = boardFactory.unpublish;
+        $scope.startStream = simulatorFactory.publish;
+        $scope.stopStream = simulatorFactory.unpublish;
 
         $scope.listDevices = () => {
             boardFactory.findPorts()
