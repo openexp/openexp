@@ -26,7 +26,7 @@ This will launch the application and it will begin your OpenEXP session.
 
 and in a separate terminal window...
 
-```npm run electron```
+```npm start```
 
 # 5. Connect
 
