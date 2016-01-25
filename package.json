@@ -16,7 +16,7 @@
   "scripts": {
     "build": "webpack --content-base client/ --progress --profile --colors --display-error-details --display-cached",
     "watch": "./node_modules/.bin/webpack-dev-server --content-base client/  --progress --colors --no-info --config webpack.config.js",
-    "start": "ENVIRONMENT=DEV electron electron/main"
+    "electron": "ENVIRONMENT=DEV electron electron/main"
   },
   "devDependencies": {
     "babel-core": "^6.3.17",
