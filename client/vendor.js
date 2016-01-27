@@ -11,5 +11,4 @@ module.exports = function() {
     require('script!jspsych/jspsych.js');
     require('script!jspsych/plugins/jspsych-text.js');
     require('script!jspsych/plugins/jspsych-single-stim.js');
-    require('script!openbci-sdk');
 }();
