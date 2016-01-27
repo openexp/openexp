@@ -2,7 +2,7 @@ angular.module('OpenEXP')
     .controller('ConnectCtrl', ['$scope','boardFactory', 'simulatorFactory', ($scope, boardFactory, simulatorFactory) => {
         var _ = require('lodash');
 
-        $scope.connect = boardFactory.connect;
+        $scope.connect = simulatorFactory.connect;
 
         $scope.devices = [];
 
@@ -10,21 +10,27 @@ angular.module('OpenEXP')
 
         $scope.simStart = simulatorFactory.simulatorStart;
 
-        $scope.startStream = simulatorFactory.publish;
-        $scope.stopStream = simulatorFactory.unpublish;
+        $scope.startSimStream = simulatorFactory.publish;
+        $scope.stopSimStream = simulatorFactory.unpublish;
 
-        $scope.listDevices = () => {
-            boardFactory.findPorts()
-                .then(ports => {
-                    $scope.$apply(_.merge($scope.devices, ports));
-                })
-                .then(ports => {
-                    $scope.$apply(_.merge($scope.devices, ports));
-                })
-        };
+        $scope.startStream = boardFactory.publish;
+        $scope.stopStream = boardFactory.unpublish;
+
+        $scope.tryAutoConnect = boardFactory.tryAutoConnect;
+        $scope.tryAutoConnect();
+
+        $scope.listDevices = boardFactory.listDevices;
+
+//      envoking the function immediately
+        $scope.listDevices().then((ports)=>{
+            $scope.$apply(_.merge($scope.devices, ports));
+            //$scope.devices = _.merge($scope.devices, ports);
+        });
+
 
         $scope.select = function(device) {
             $scope.selected = device;
+            console.log("Clicked: " + $scope.selected.comName)
         };
 
     }]);
