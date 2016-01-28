@@ -1,22 +1,23 @@
 <div class="row spacer" style="margin-top:100px"></div>
 <div>
   <center>
+    <div class="container">
       <table class="table table-bordered connect-table">
         <tr>
             <th class="table-header">Select Your Device</th>
         </tr>
         <tr ng-repeat="device in devices">
-            <td ng-click="select(device)" ng-class="{selected: selected.comName === device.comName}">{{device.comName}}</td>
+            <td ng-click="select(device)" ng-class="{selected: selected.comName === device.comName}">{{device.comName.split('.')[1]}}</td>
         </tr>
       </table>
 
-      <button id="listdevices" class="btn btn-lg" ng-click="listDevices()">Refresh</button>
+      <button id="listdevices" class="btn btn-lg" ng-click="refreshDevices()">Refresh</button>
       <!--<button type="button" ng-click="connect(selected.comName)" class="btn btn-lg btn-default">Connect</button>-->
-      <button type="button" ng-click="simStart()" class="btn btn-lg">Connect Simulator</button>
+      <button class="btn btn-lg" ng-click="connectSelectedDevice()">Connect</button>
+    </div>
+      <hr />
+      <button type="button" ng-click="simStart()" class="btn btn-lg">{{board.streaming==true ? "Disconnect" : "Connect"}}</button>
       <button class="btn btn-lg" ng-click="startSimStream()">Start Simulator</button>
       <button class="btn btn-lg" ng-click="stopSimStream()">Stop Simulator</button>
-      <hr />
-      <button class="btn btn-lg" ng-click="startStream()">Start EEG Stream</button>
-      <button class="btn btn-lg" ng-click="stopStream()">Stop EEG Stream</button>
   </center>
 </div>

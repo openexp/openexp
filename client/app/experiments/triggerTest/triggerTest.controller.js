@@ -1,12 +1,8 @@
 angular.module('OpenEXP')
-    .controller('TriggerCtrl', ['$scope', ($scope) => {
-        // create the connect with device
-        //socket = io.connect('http://localhost:8080');
 
+    // inject the board into the controller
+    .controller('TriggerCtrl', ['$scope', 'boardFactory', ($scope, boardFactory) => {
 
-        console.log('Data stream start...')
-        socket.emit('message', 'b')  //start data stream
-        /* define welcome message block */
         var welcome_block = {
             type: "text",
             text: "Welcome to the experiment. Press any key to begin."
@@ -22,10 +18,9 @@ angular.module('OpenEXP')
         };
 
         /* define test block */
-
         var test_stimuli = [
             {
-                image: "img/blue.png",
+                image: "app/experiments/triggerTest/images/blue.png",
                 data: { response: 'trigger' },
                 trigger: "`",
             },
@@ -47,6 +42,10 @@ angular.module('OpenEXP')
             timing_response: 100,
             timing_post_trial: post_trial_gap,
             trigger: all_trials.trigger,
+
+            // passing the board as a variable
+            board: boardFactory.board,
+
         };
 
 
@@ -68,7 +67,8 @@ angular.module('OpenEXP')
         jsPsych.init({
             experiment_structure: experiment,
             display_element: $('#jspsych-target'),
-            on_finish: function() {socket.emit('message', 's')  //end data stream
+            on_finish: function() {
+                console.log('Finished Experiment.');
                 jsPsych.data.displayData();
             }
         });
