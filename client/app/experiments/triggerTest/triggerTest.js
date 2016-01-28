@@ -4,6 +4,6 @@ angular.module('OpenEXP')
             .state('triggerTest', {
                 url: '/',
                 controller: 'TriggerCtrl',
-                template: './app/experiments/triggerTest/triggerTest.html'
+                templateUrl: './app/experiments/triggerTest/triggerTest.html'
         })
     });

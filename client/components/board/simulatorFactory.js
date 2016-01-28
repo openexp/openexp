@@ -8,23 +8,27 @@ angular.module('OpenEXP')
         var simulatorStart = () => {
             ourBoard.simulatorStart()
                 .then(() => {
+                    counter = 0;
+                    console.log('Simulator Started.')
                     ourBoard.on('sample',sample => {
-                        storage[sample.sampleNumber] = sample;
+                        storage[counter] = sample;
+                        counter+=1;
                     })
                 }).catch(err => console.log('Error [simulator]: ' + err))
         };
 
-        var observer = function(changes) {
+        var observer = (changes) => {
             changes.forEach(change => {
-                if(change.type === "add") console.log(change)
+                 console.log(change.name);
+                 ourBoard.sampleData = change.name;
             })
         };
 
         var publish = () => Object.observe(storage, observer);
-
         var unpublish = () => Object.unobserve(storage, observer);
 
         return {
+            board: ourBoard,
             simulatorStart: simulatorStart,
             publish: publish,
             unpublish: unpublish

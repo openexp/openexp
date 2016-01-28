@@ -1,22 +1,22 @@
 angular.module('OpenEXP')
     .factory('boardFactory', () => {
+
+        // requirements
         const OpenBCIBoard = require('openbci-sdk');
         const ourBoard = new OpenBCIBoard.OpenBCIBoard();
 
-        // wrote a method in the openbci-sdk to return an array of ports and
-        // wrapping it in a promise here
+        // return a promise to listen devices
         var listDevices = () => {
             return new Promise((res,rej) => {
               ourBoard.listPorts().then((value) => {
                 res(value)
-                console.log(value)
+              }).catch((err) => {
+                console.log("error!")
               })
             })
         };
 
-        // when the connect state is loaded in the app, it auto runs this function
-        // which either connects to the board and starts the data stream, or
-        // returns an array of available devices
+        // auto-connect to the board and return an array if the board isn't found
         var tryAutoConnect = () => {
             return new Promise((res, rej) => {
               ourBoard.autoFindOpenBCIBoard().then((value) => {
@@ -28,38 +28,42 @@ angular.module('OpenEXP')
                   console.log("Auto-detected board!  Connecting...")
                   res(connect(value))
                 }
-              })
-          })
+              }).catch((err) => {
+                console.log("error!")
+                })
+            })
         };
 
+        // initialize storage object
         var storage = {};
 
+        // connect to the board and start streaming if no errors
         var connect = (portName) => {
             ourBoard.connect(portName)
                 .then(boardSerial => {
-                    ourBoard.on('ready',function() {
-                        console.log('Connected!')
+                    ourBoard.on('ready', () => {
                         ourBoard.streamStart();
-                        this.isConnected = true;
-                    });
-                }).catch(function(err) {
-                /** Handle connection errors */
-                console.log("error!")
-            });
+                        console.log('Connected!')
+                    })
+                }).catch((err) => {
+                  console.log("error!")
+                })
         };
 
-        var observer = function(changes) {
+        // each time there is a change of type add, log it
+        var observer = (changes) => {
             changes.forEach(change => {
                 if(change.type === "add") console.log(change)
             })
         };
 
+        // set up functions to toggle the observables on/off
         var publish = () => Object.observe(storage, observer);
-
         var unpublish = () => Object.unobserve(storage, observer);
 
-
+        // return these objects and functions
         return {
+            board: ourBoard,
             tryAutoConnect: tryAutoConnect,
             listDevices: listDevices,
             connect: connect,
