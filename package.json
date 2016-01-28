@@ -2,7 +2,7 @@
   "name": "openexp",
   "version": "0.1.2",
   "description": "An open-source mean stack app for running experiments with openbci",
-  "author": "Andy Heusser & Teon Brooks",
+  "author": "Andy Heusser, Teon Brooks, Austin Shoecraft & AJ Keller",
   "license": "MIT",
   "repository": {
     "type": "git",
