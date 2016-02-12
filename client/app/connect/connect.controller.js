@@ -1,7 +1,7 @@
 angular.module('OpenEXP')
 
     // passing services here as an array allows the the controller to be minified without losing track of the services
-    .controller('ConnectCtrl', ['$scope','boardFactory', 'simulatorFactory', ($scope, boardFactory, simulatorFactory) => {
+    .controller('ConnectCtrl', ['$scope','boardFactory', ($scope, boardFactory) => {
 
         // grab scope for debugging
         window.MY_SCOPE = $scope;
@@ -10,20 +10,12 @@ angular.module('OpenEXP')
         $scope.devices = [];
         $scope.selected;
 
-        // import simulator functions
-        $scope.simStart = simulatorFactory.simulatorStart;
-        $scope.startSimStream = simulatorFactory.publish;
-        $scope.stopSimStream = simulatorFactory.unpublish;
-
 
         // import hardware functions
         $scope.board = boardFactory.board;
         $scope.connect = boardFactory.connect;
         $scope.tryAutoConnect = boardFactory.tryAutoConnect;
         $scope.listDevices = boardFactory.listDevices;
-
-        // try to run auto-connect immediately
-        $scope.tryAutoConnect();
 
         // envoking the function immediately
         $scope.listDevices().then((ports)=>{
@@ -49,7 +41,9 @@ angular.module('OpenEXP')
 
         // connect to the selected device
         $scope.connectSelectedDevice = () => {
-          $scope.connect($scope.selected.comName);
+          $scope.connect($scope.selected.comName).then(()=>{
+            $scope.$apply();
+          })
         };
 
     }]);

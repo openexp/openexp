@@ -13,11 +13,7 @@
 
       <button id="listdevices" class="btn btn-lg" ng-click="refreshDevices()">Refresh</button>
       <!--<button type="button" ng-click="connect(selected.comName)" class="btn btn-lg btn-default">Connect</button>-->
-      <button class="btn btn-lg" ng-click="connectSelectedDevice()">Connect</button>
+      <button class="btn btn-lg" ng-click="connectSelectedDevice()">{{board.connected ? 'Disconnect' : 'Connect'}}</button>
     </div>
-      <hr />
-      <button type="button" ng-click="simStart()" class="btn btn-lg">{{board.streaming==true ? "Disconnect" : "Connect"}}</button>
-      <button class="btn btn-lg" ng-click="startSimStream()">Start Simulator</button>
-      <button class="btn btn-lg" ng-click="stopSimStream()">Stop Simulator</button>
   </center>
 </div>

@@ -6,7 +6,6 @@ module.exports = function() {
 
     // Factory Methods
     require('./components/board/boardFactory.js');
-    require('./components/board/simulatorFactory.js');
 
     //
     require('./app/home/home.js');

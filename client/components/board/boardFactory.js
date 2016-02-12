@@ -3,7 +3,11 @@ angular.module('OpenEXP')
 
         // requirements
         const OpenBCIBoard = require('openbci-sdk');
-        const ourBoard = new OpenBCIBoard.OpenBCIBoard();
+        const ourBoard = new OpenBCIBoard.OpenBCIBoard({
+          verbose:true
+        });
+        // var fs = require('fs')
+        // var wstream = fs.createWriteStream('triggerTest_500samples_jitter.txt');
 
         // return a promise to listen devices
         var listDevices = () => {
@@ -39,16 +43,25 @@ angular.module('OpenEXP')
 
         // connect to the board and start streaming if no errors
         var connect = (portName) => {
+          return new Promise((res, rej) => {
             ourBoard.connect(portName)
                 .then(boardSerial => {
                     ourBoard.on('ready', () => {
                         ourBoard.streamStart();
                         console.log('Connected!')
+                        counter = 0;
+                        ourBoard.on('sample', (sample) => {
+                          // wstream.write(sample.auxData[0] + ',' + sample.auxData[2] + '\n');
+                          // console.log(sample.channelData[0] + '\n')
+                          storage[counter] = sample;
+                          counter+=1;
+                        })
                     })
                 }).catch((err) => {
                   console.log("error!")
                 })
-        };
+        })
+      };
 
         // each time there is a change of type add, log it
         var observer = (changes) => {
