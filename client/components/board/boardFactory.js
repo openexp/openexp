@@ -3,9 +3,7 @@ angular.module('OpenEXP')
 
         // requirements
         const OpenBCIBoard = require('openbci-sdk');
-        const ourBoard = new OpenBCIBoard.OpenBCIBoard({
-          verbose:true
-        });
+        const ourBoard = new OpenBCIBoard.OpenBCIBoard();
         // var fs = require('fs')
         // var wstream = fs.createWriteStream('triggerTest_500samples_jitter.txt');
 
@@ -45,7 +43,7 @@ angular.module('OpenEXP')
         var connect = (portName) => {
           return new Promise((res, rej) => {
             ourBoard.connect(portName)
-                .then(boardSerial => {
+                .then(() => {
                     ourBoard.on('ready', () => {
                         ourBoard.streamStart();
                         console.log('Connected!')

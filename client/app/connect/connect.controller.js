@@ -10,7 +10,6 @@ angular.module('OpenEXP')
         $scope.devices = [];
         $scope.selected;
 
-
         // import hardware functions
         $scope.board = boardFactory.board;
         $scope.connect = boardFactory.connect;

@@ -4,10 +4,10 @@ module.exports = function() {
     require('./app/app.scss');
     require('./app/app');
 
-    // Factory Methods
+    // FACTORY METHODS
     require('./components/board/boardFactory.js');
 
-    //
+    // PAGES
     require('./app/home/home.js');
     require('./app/home/home.controller.js');
     require('./app/analyze/analyze.js');
@@ -20,6 +20,8 @@ module.exports = function() {
     require('./app/login/login.controller.js');
     require('./app/settings/settings.js');
     require('./app/settings/settings.controller.js');
+    require('./app/experiments/experiments.js')
+    require('./app/experiments/experiments.controller.js')
     require('./app/experiments/reactionTimeTask/reactionTimeTask.js');
     require('./app/experiments/reactionTimeTask/reactionTimeTask.controller.js');
     require('./app/experiments/triggerTest/triggerTest.js');
