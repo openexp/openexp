@@ -22,10 +22,14 @@ module.exports = function() {
     require('./app/settings/settings.controller.js');
     require('./app/experiments/experiments.js')
     require('./app/experiments/experiments.controller.js')
-    require('./app/experiments/reactionTimeTask/reactionTimeTask.js');
-    require('./app/experiments/reactionTimeTask/reactionTimeTask.controller.js');
-    require('./app/experiments/triggerTest/triggerTest.js');
-    require('./app/experiments/triggerTest/triggerTest.controller.js');
+    require('./app/experiments/local/experiments-local.controller.js')
+    require('./app/experiments/local/experiments-local.js')
+    require('./app/experiments/local/reactionTimeTask/reactionTimeTask.js');
+    require('./app/experiments/local/reactionTimeTask/reactionTimeTask.controller.js');
+    require('./app/experiments/local/triggerTest/triggerTest.js');
+    require('./app/experiments/local/triggerTest/triggerTest.controller.js');
+    require('./app/experiments/db/experiments-db.controller.js');
+    require('./app/experiments/db/experiments-db.js');
 
     // COMPONENTS
     require('./components/navbar/navbar.js');

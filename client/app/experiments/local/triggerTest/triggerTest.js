@@ -1,9 +1,9 @@
 angular.module('OpenEXP')
     .config($stateProvider => {
         $stateProvider
-            .state('triggerTest', {
+            .state('experiments.local.triggerTest', {
                 url: '/',
                 controller: 'TriggerCtrl',
-                templateUrl: './app/experiments/triggerTest/triggerTest.html'
+                templateUrl: './app/experiments/local/triggerTest/triggerTest.html'
         })
     });
