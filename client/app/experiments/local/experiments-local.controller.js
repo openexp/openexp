@@ -8,13 +8,13 @@ angular.module('OpenEXP')
         name: "Trigger Test Experiment",
         short: "This experiment is designed to perform a trigger test using the OpenBCI hardware to test for trigger latencies.",
         description: "",
-        state: "experiments.local.triggerTest"
+        state: "triggerTest"
       },
       {
         name: "Reaction Time Experiment",
         short: "In this experiment, purple and orange circles are presented to the screen and the participant responds to one of them.",
         description: "",
-        state: "experiments.local.reactionTimeTask"
+        state: "reactionTimeTask"
       },
       {
         name: "Memory Experiment",

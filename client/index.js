@@ -20,6 +20,8 @@ module.exports = function() {
     require('./app/login/login.controller.js');
     require('./app/settings/settings.js');
     require('./app/settings/settings.controller.js');
+
+    // EXPERIMENTS
     require('./app/experiments/experiments.js')
     require('./app/experiments/experiments.controller.js')
     require('./app/experiments/local/experiments-local.controller.js')
