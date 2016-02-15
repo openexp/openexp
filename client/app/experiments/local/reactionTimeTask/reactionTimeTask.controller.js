@@ -13,9 +13,9 @@ angular.module('OpenEXP')
             "press the letter F on the keyboard as fast as you can.</p>" +
             "<p>If the circle is <strong>orange</strong>, do not press " +
             "any key.</p>" +
-            "<div class='left center-content'><img src='app/experiments/reactionTimeTask/images/blue.png'></img>" +
+            "<div class='left center-content'><img src='app/experiments/local/reactionTimeTask/images/blue.png'></img>" +
             "<p class='small'><strong>Press the F key</strong></p></div>" +
-            "<div class='right center-content'><img src='app/experiments/reactionTimeTask/images/orange.png'></img>" +
+            "<div class='right center-content'><img src='app/experiments/local/reactionTimeTask/images/orange.png'></img>" +
             "<p class='small'><strong>Do not press a key</strong></p></div>" +
             "<p>Press any key to begin.</p>",
             timing_post_trial: 2000
