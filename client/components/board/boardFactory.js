@@ -58,8 +58,8 @@ angular.module('OpenEXP')
                 }).catch((err) => {
                   console.log("error!")
                 })
-        })
-      };
+          })
+        };
 
         // each time there is a change of type add, log it
         var observer = (changes) => {
