@@ -1,0 +1,42 @@
+<div class="row spacer" style="margin-top:30px"></div>
+<center><h1>Local Experiments</h1></center>
+<div class="row spacer" style="margin-top:50px"></div>
+<div ng-repeat="experiment in experiments">
+  <div class="panel panel-default" style="margin-left:50px; margin-right:50px">
+    <div class="panel-heading">
+      <a href="#" style="text-decoration:none" class="">
+        <h4>
+          <span>
+            <a type="button" ui-sref="{{experiment.state}}" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-play"></span></a> <!-- ng-class="loggedIn ? 'not-disabled' : 'disabled'" -->
+            <!-- <a type="button" ui-sref="" class="btn btn-warning pull-right" style="margin-right:20px"><span class="glyphicon glyphicon-link"></span></a> -->
+          </span>
+          <div>
+            <h3>{{experiment.name}}</h3>
+          </div>
+        </h4>
+      </a>
+    </div>
+    <div class="panel-body">
+      <div class="short-description">
+        <i>{{experiment.short}}</i>
+      </div>
+    </div>
+    <hr />
+    <div class="panel-body ng-hide">
+      <div class="abstract-text">
+        {{experiment.description}}
+      </div>
+    </div>
+    <button style="margin-left:20px" type="button" class="btn btn btn-info">
+      <a style="color:white; text-decoration:none" href="#/search"><span class="glyphicon glyphicon-chevron-down"></span> More Info</a>
+    </button>
+    <div class="row spacer" style="margin-top:20px"></div>
+  </div>
+</div>
+<div class="row spacer" style="margin-top:50px"></div>
+</div>
+<style>
+.panel-heading:hover {
+  background-color: lightgray !important;
+}
+</style>

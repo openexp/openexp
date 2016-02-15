@@ -1,8 +1,9 @@
 angular.module('OpenEXP')
-    .controller('DashboardCtrl', ['$scope', 'boardFactory', 'simulatorFactory', ($scope, boardFactory, simulatorFactory) => {
+    .controller('DashboardCtrl', ['$scope', 'boardFactory', ($scope, boardFactory) => {
 
     $scope.board = boardFactory.board;
-    $scope.startStream = boardFactory.publish;
-    $scope.stopStream = boardFactory.unpublish;
+
+    $scope.publish = boardFactory.publish;
+    $scope.unpublish = boardFactory.unpublish;
 
 }]);

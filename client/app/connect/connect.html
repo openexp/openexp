@@ -1,23 +1,25 @@
-<div class="row spacer" style="margin-top:100px"></div>
-<div>
-  <center>
-    <div class="container">
-      <table class="table table-bordered connect-table">
-        <tr>
-            <th class="table-header">Select Your Device</th>
-        </tr>
-        <tr ng-repeat="device in devices">
-            <td ng-click="select(device)" ng-class="{selected: selected.comName === device.comName}">{{device.comName.split('.')[1]}}</td>
-        </tr>
-      </table>
-
-      <button id="listdevices" class="btn btn-lg" ng-click="refreshDevices()">Refresh</button>
-      <!--<button type="button" ng-click="connect(selected.comName)" class="btn btn-lg btn-default">Connect</button>-->
-      <button class="btn btn-lg" ng-click="connectSelectedDevice()">Connect</button>
+<div class="row spacer" style="margin-top:50px"></div>
+<center>
+  <form class="form">
+    <div class="form-group">
+      <label for="exampleInputName2"><h2>Filename</h2></label>
+      <input style="width:500px" type="text" class="form-control" id="exampleInputName2" placeholder="NOT untitled.txt. Choose something meaningful :)">
+      <div class="row spacer" style="margin-top:20px"></div>
+    <button type="submit" class="btn btn-lg">Create File</button>
     </div>
-      <hr />
-      <button type="button" ng-click="simStart()" class="btn btn-lg">{{board.streaming==true ? "Disconnect" : "Connect"}}</button>
-      <button class="btn btn-lg" ng-click="startSimStream()">Start Simulator</button>
-      <button class="btn btn-lg" ng-click="stopSimStream()">Stop Simulator</button>
+  </form>
+  <div class="row spacer" style="margin-top:50px"></div>
+
+  <div class="container">
+    <table class="table table-bordered connect-table">
+      <tr>
+        <th class="table-header">Select Your Device</th>
+      </tr>
+      <tr ng-repeat="device in devices">
+        <td ng-click="select(device)" ng-class="{selected: selected.comName === device.comName}">{{device.comName.split('.')[1]}}</td>
+      </tr>
+    </table>
+    <button id="listdevices" class="btn btn-lg" ng-click="refreshDevices()">Refresh</button>
+    <button class="btn btn-lg" ng-click="connectSelectedDevice()">{{board.connected ? 'Disconnect' : 'Connect'}}</button>
   </center>
 </div>

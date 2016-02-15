@@ -20,17 +20,18 @@ angular.module('OpenEXP')
         /* define test block */
         var test_stimuli = [
             {
-                image: "app/experiments/triggerTest/images/blue.png",
+                image: "app/experiments/local/triggerTest/images/black.png",
                 data: { response: 'trigger' },
                 trigger: "`",
             },
 
         ];
 
-        var all_trials = jsPsych.randomization.repeat(test_stimuli, 100, true);
+        var all_trials = jsPsych.randomization.repeat(test_stimuli, 500, true);
 
         var post_trial_gap = function() {
-            return Math.floor( Math.random() * 1500 ) + 750;
+            return Math.floor( Math.random() * 1000 ) + 500;
+            // return 1000;
         }
         //var post_trial_gap = 2500
 
@@ -39,7 +40,7 @@ angular.module('OpenEXP')
             stimuli: all_trials.image,
             choices: ['F'],
             data: all_trials.data,
-            timing_response: 100,
+            timing_response: 1000,
             timing_post_trial: post_trial_gap,
             trigger: all_trials.trigger,
 
