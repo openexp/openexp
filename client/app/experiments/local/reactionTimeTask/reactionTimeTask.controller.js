@@ -25,11 +25,11 @@ angular.module('OpenEXP')
 
         var test_stimuli = [
             {
-                image: "app/experiments/reactionTimeTask/images/blue.png",
+                image: "app/experiments/local/reactionTimeTask/images/blue.png",
                 data: { response: 'go' }
             },
             {
-                image: "app/experiments/reactionTimeTask/images/orange.png",
+                image: "app/experiments/local/reactionTimeTask/images/orange.png",
                 data: { response: 'no-go' }
             }
         ];

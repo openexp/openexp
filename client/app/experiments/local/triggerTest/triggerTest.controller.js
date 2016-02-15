@@ -20,7 +20,7 @@ angular.module('OpenEXP')
         /* define test block */
         var test_stimuli = [
             {
-                image: "app/experiments/triggerTest/images/black.png",
+                image: "app/experiments/local/triggerTest/images/black.png",
                 data: { response: 'trigger' },
                 trigger: "`",
             },
