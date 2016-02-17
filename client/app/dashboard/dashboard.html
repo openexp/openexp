@@ -2,32 +2,3 @@
   <button class="btn btn-lg btn-info" ng-click="publish()"><span class="glyphicon glyphicon-play"></button>
   <button class="btn btn-lg btn-warning" ng-click="unpublish()"><span class="glyphicon glyphicon-pause"></button>
 </center>
-
-<script>
-// var lineStreaming = require('lightning-line-streaming')
-// var el = document.body.appendChild(document.createElement('div'))
-// var viz = new lineStreaming(el, {series: [Math.random(),Math.random()]})
-//
-// setInterval(function () {
-// 	viz.appendData({series: [Math.random()]})
-// }, 50)
-
-// var OpenBCIBoard = require('openbci-sdk');
-// var board = new OpenBCIBoard.OpenBCIBoard({simulatorSampleRate: 1, verbose: 'true'});
-// var lineStreaming = require('lightning-line-streaming')
-// // var lightning = new Lightning({ host: 'http://public.lightning-viz.org/'});
-// var el = document.body.appendChild(document.createElement('div'))
-// var viz = new lineStreaming(el,{series: [[0],[0],[0],[0],[0],[0],[0],[0]]})
-//
-// board.connect('/dev/tty.openBCISimulator').then(function(){
-//   board.streamStart();
-//   data=[[0],[0],[0],[0],[0],[0],[0],[0]];
-//   board.on('sample',function(sample) {
-//     for(i=0; i<8; i++){
-//       data[i][0]= sample.channelData[i+1]+i*.0005;
-//     };
-//     viz.appendData({series: data});
-//   });
-// });
-
-</script>
