@@ -2,7 +2,7 @@ angular.module('OpenEXP')
     .config($stateProvider => {
         $stateProvider
             .state('analyze', {
-                url: '/',
+                url: '/analyze',
                 controller: 'AnalyzeCtrl',
                 templateUrl: './app/analyze/analyze.html'
         });
