@@ -1,15 +1,5 @@
 <div class="row spacer" style="margin-top:50px"></div>
 <center>
-  <form class="form">
-    <div class="form-group">
-      <label for="exampleInputName2"><h2>Filename</h2></label>
-      <input style="width:500px" type="text" class="form-control" id="exampleInputName2" placeholder="NOT untitled.txt. Choose something meaningful :)">
-      <div class="row spacer" style="margin-top:20px"></div>
-    <button type="submit" class="btn btn-lg">Create File</button>
-    </div>
-  </form>
-  <div class="row spacer" style="margin-top:50px"></div>
-
   <div class="container">
     <table class="table table-bordered connect-table">
       <tr>
@@ -21,5 +11,14 @@
     </table>
     <button id="listdevices" class="btn btn-lg" ng-click="refreshDevices()">Refresh</button>
     <button class="btn btn-lg" ng-click="connectSelectedDevice()">{{board.connected ? 'Disconnect' : 'Connect'}}</button>
-  </center>
-</div>
+  </div>
+  <div class="row spacer" style="margin-top:50px"></div>
+  <form class="form">
+    <div class="form-group">
+      <label for="eegDataFilename"><h2>Filename</h2></label>
+      <input style="width:500px" type="text" class="form-control" id="eegDataFilename" placeholder="NOT untitled.txt. Choose something meaningful :)">
+      <div class="row spacer" style="margin-top:20px"></div>
+      <button type="submit" class="btn btn-lg">Create File</button>
+    </div>
+  </form>
+</center>

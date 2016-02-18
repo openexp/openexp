@@ -2,10 +2,8 @@ angular.module('OpenEXP')
     .config($stateProvider => {
         $stateProvider
             .state('experiments', {
-                abstract: 'true',
-                url: '/',
+                url: '/experiments',
                 controller: 'experimentsCtrl',
                 templateUrl: './app/experiments/experiments.html',
-                redirectTo: 'experiments.local'
             })
     });
