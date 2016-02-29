@@ -11,9 +11,14 @@
 
     <div id="main" ui-view=""></div>
 
+    <!--COMMENT OUT NEXT THREE LINES FOR PRODUCTION-->
     <script src="http://localhost:8080/webpack-dev-server.js"></script>
     <script src="http://localhost:8080/build/vendor.js"></script>
     <script src="http://localhost:8080/build/app.js"></script>
+
+    <!--UNCOMMENT NEXT TWO LINES FOR PRODUCTION-->
+    <!--<script src="./build/vendor.js"></script>-->
+    <!--<script src="./build/app.js"></script>-->
 
 </body>
 </html>
