@@ -1,7 +1,7 @@
-var app = require('app');
+const electron = require('electron');
+const app = electron.app; // Module to control application life
+const BrowserWindow = electron.BrowserWindow; // Module to create native browser window.
 
-// browser-window creates a native window
-var BrowserWindow = require('browser-window');
 var mainWindow = null;
 
 app.on('window-all-closed', function () {
@@ -18,7 +18,7 @@ app.on('ready', function () {
     // Tell Electron where to load the entry point from
     mainWindow.loadURL('file://' + __dirname + '/../client/index.html');
 
-
+    /** COMMENT OUT LINE BELOW FOR PRODUCTION */
     mainWindow.openDevTools();
 
     // Clear out the main window when the app is closed

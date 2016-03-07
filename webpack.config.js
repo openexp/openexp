@@ -1,7 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
+// Now you can use if (__DEV__) around the app to exclude code from production
+var definePlugin = new webpack.DefinePlugin({
+    __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true'))
+});
+
+var config  = {
     entry: {
         vendor: './client/vendor.js',
 
@@ -38,7 +43,16 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        definePlugin
     ]
 
 };
+
+if (process.env.NODE_ENV === 'production') {
+    // comment the bottom line to avoid minification
+    //config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+    config.entry.app = ['./client/index.js'];
+}
+
+module.exports = config;
