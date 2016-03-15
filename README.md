@@ -3,6 +3,9 @@
 # OpenEXP
 OpenEXP is an open-source desktop app for running experiments and collecting behavioral and physiological data.
 
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 This software is currently in ALPHA stage but it is being rapidly optimized and improved. To get started, please follow the following steps:
 
 # 1. Download OpenEXP repo
