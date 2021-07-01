@@ -1,3 +1,5 @@
+# This project has been superseded by [BrainWaves](https://github.com/makebrainwaves/BrainWaves). This repo has been archived and kept for historical purposes.
+
 [![Stories in Ready](https://badge.waffle.io/OpenBCI/OpenEXP.png?label=ready&title=Ready)](https://waffle.io/OpenBCI/OpenEXP)
 [![Join the chat at https://gitter.im/OpenBCI/OpenEXP](https://badges.gitter.im/OpenBCI/OpenEXP.svg)](https://gitter.im/OpenBCI/OpenEXP?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 # OpenEXP
